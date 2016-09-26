@@ -45,7 +45,8 @@ function mdWidgetEngineDirective(){
     // Runs during compile
     return {
         scope: {
-            configuration: "=configuration"
+            configuration: "=configuration",
+            callback: "=callback"
         },
         templateUrl: "components/widgetEngine/views/widgetEngine.html",
         controller: function($scope, $element, $attrs, $transclude){},
@@ -122,7 +123,10 @@ function mdWidgetEngineWidgetTileDirectiveController(){
 
             _obj._draggedTile.removeClass("md-widget-engine-widget-dashed");
             $element.removeClass("md-widget-engine-widget-dashed");
-            setTimeout(function(){$scope.$apply();}, 200);
+            setTimeout(function(){
+                $scope.$apply();
+                $scope.callback("update", configuration);
+            }, 200);
             // if source and destination are same, well then move on :P
         });
 
