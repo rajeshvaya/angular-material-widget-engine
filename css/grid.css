@@ -1,0 +1,77 @@
+.resize-vertical{
+  min-height: 20px;
+  resize: vertical;
+  overflow: scroll;
+}
+
+.app-container{
+  /*height: 500px;*/
+}
+
+.md-widget-engine{
+  border: 0px dashed black;
+}
+
+.md-widget-engine-column{
+  border-right: 1px dashed #aaa;
+  padding: 10px;
+}
+
+
+.md-widget-engine-widget-tile-container{
+  padding: 10px;
+  -webkit-transition: -webkit-transform 0.25s ease-out;
+  -moz-transition: -moz-transform 0.25s ease-out;
+  -o-transition: -o-transform 0.25s ease-out;
+  -ms-transition: -ms-transform 0.25s ease-out;
+}
+
+.md-widget-engine-widget-tile-container.md-widget-engine-widget-moving{
+  opacity: 0.25;
+  transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+}
+
+.md-widget-engine-widget-tile-container.md-widget-engine-widget-dashed{
+  border: 3px dashed black;
+}
+
+.md-widget-engine-widget-tile{
+  -webkit-transition: -webkit-transform 0.25s ease-out;
+  -moz-transition: -moz-transform 0.25s ease-out;
+  -o-transition: -o-transform 0.25s ease-out;
+  -ms-transition: -ms-transform 0.25s ease-out;
+}
+
+.md-widget-engine-widget-dashed .md-widget-engine-widget-tile{
+  transform: scale(0.0);
+  -webkit-transform: scale(0.0);
+  -moz-transform: scale(0.0);
+  -ms-transform: scale(0.0);
+  -o-transform: scale(0.0);
+}
+
+.md-widget-engine-widget-tile-dragger{
+  font-size: 1.2em;
+}
+
+.md-widget-engine-widget-tile-title-container md-toolbar {
+  min-height: 20px;
+}
+
+.md-widget-engine-widget-tile-title{
+  padding: 10px;
+}
+
+.md-widget-engine-widget-tile-content-container{
+  
+}
+
+.md-widget-engine-widget-tile-content{
+  padding: 10px;
+  border-bottom: 1px solid transparent;
+}
+

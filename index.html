@@ -1,0 +1,34 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+
+  <link rel="stylesheet" href="css/grid.css">
+</head>
+<body ng-app="MyApp" ng-cloak>
+  
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="bower_components/angular-material/angular-material.min.js"></script>
+  
+  <div ng-controller="sampleCtrl" class="app-container">
+    <md-widget-engine configuration='data.configuration'></md-widget-engine>
+  </div>
+  
+  
+  <!-- App libraries -->
+  <script src="components/widgetEngine/directives/widgetEngine.js"></script>
+
+  <!-- Sample App libraries -->
+  <script src="js/app.js"></script>
+  <script src="js/sample.controllers.js"></script>
+
+</body>
+</html>

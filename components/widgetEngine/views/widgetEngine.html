@@ -1,0 +1,12 @@
+<div class="md-widget-engine-container" ng-if="configuration.columns">
+    <div class="md-widget-engine">
+        <div layout="row" flex style="height: 100%">
+            <md-widget-engine-column 
+                ng-repeat="c in configuration.columns" 
+                column="c" 
+                flex="{{c.size}}"
+                style="background-color: {{c.background}} "
+            ></md-widget-engine-column>
+        </div>
+    </div>
+</div><!-- md-widget-engine-container -->

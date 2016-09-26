@@ -1,0 +1,26 @@
+<div class="md-widget-engine-widget-tile-container">
+    <div class="md-widget-engine-widget-tile md-whiteframe-2dp">
+
+        <div class="md-widget-engine-widget-tile-title-container">
+            <md-toolbar>
+                <div class="md-widget-engine-widget-tile-title">
+                    <!-- <span class="md-widget-engine-widget-tile-dragger">:::</span> -->
+                    <span style="cursor: pointer" md-widget-engine-widget-dragger>{{widget.title || 'Widget'}}</span>
+                </div>
+            </md-toolbar>
+        </div>
+
+        <div class="md-widget-engine-widget-tile-content-container">
+            <md-content>
+                <div class="md-widget-engine-widget-tile-content resize-vertical" style="min-height:{{widget.minHeight}}px; max-height:widget.maxHeight" draggable="false">
+                    {{widget.title}} content<br/>
+                    {{widget.title}} content<br/>
+                    {{widget.title}} content<br/>
+                    {{widget.title}} content<br/>
+                    {{widget.title}} content<br/>
+                </div>
+            </md-content>    
+        </div>
+
+    </div><!-- md-widget-engine-widget-tile -->
+</div><!-- md-widget-engine-widget-tile-container -->
