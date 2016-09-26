@@ -10,7 +10,7 @@ angular
 // Every widget engine has X columns
 function mdWidgetEngineColumnDirective(){
     return {
-        scope: { column: "=" },
+        scope: false,
         templateUrl: "components/widgetEngine/views/widgetEngineColumn.html",
         controller: function($scope, $element, $attrs, $transclude){},
         link: function($scope, iElm, iAttrs, controller) {}
@@ -20,7 +20,7 @@ function mdWidgetEngineColumnDirective(){
 // Every widget column has X widget tiles
 function mdWidgetEngineWidgetTileDirective(){
     return {
-        scope: { widget: "=" },
+        scope: false,
         replace: true,
         templateUrl: "components/widgetEngine/views/widgetEngineWidgetTile.html",
         controller: mdWidgetEngineWidgetTileDirectiveController(),
@@ -44,18 +44,6 @@ function mdWidgetEngineWidgetTileDragger(){
 function mdWidgetEngineDirective(){
     // Runs during compile
     return {
-        // name: '',
-        // priority: 1,
-        // terminal: true,
-        // scope: {}, // {} = isolate, true = child, false/undefined = no change
-        // controller: function($scope, $element, $attrs, $transclude) {},
-        // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
-        // restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
-        // template: '',
-        // templateUrl: '',
-        // replace: true,
-        // transclude: true,
-        // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
         scope: {
             configuration: "=configuration"
         },
@@ -69,13 +57,10 @@ function mdWidgetEngineDirective(){
 
 function mdWidgetEngineWidgetTileDirectiveController(){
     var _obj = {};
-
     _obj._draggedTile = null;
 
     _obj.controller = function($scope, $element, $attrs, $transclude){
-
         $element.attr("draggable", "true");
-
         $element.on('dragstart', function(event){
             // only drag when initiated by child
             event.stopPropagation();
@@ -87,11 +72,13 @@ function mdWidgetEngineWidgetTileDirectiveController(){
                 return;
             }
             $element.addClass("md-widget-engine-widget-moving");
-            event.dataTransfer.setData("text/html", this.innerHTML);
+            var draggerPosition = $scope.columnIndex + "::" + $scope.widgetIndex;
+            event.dataTransfer.setData("Text", draggerPosition);
             event.dataTransfer.effectAllowed = "move";
             event.dataTransfer.dropEffect = "move";
             event.dataTransfer.setDragImage($element[0], 20, 20);
             _obj._draggedTile = $element;
+            console.log($scope.columnIndex, $scope.widgetIndex);
         });
 
         $element.on('dragenter', function(event){
@@ -119,10 +106,23 @@ function mdWidgetEngineWidgetTileDirectiveController(){
         });
 
         $element.on('drop', function(event){
-            console.log("hiiii");
+
+            var configuration = angular.copy($scope.configuration);
+            // get the positions of swappers
+            var draggerPosition = (event.dataTransfer.getData("Text") || event.dataTransfer.getData("text/plain")).split("::");
+            var dropeePosition = [$scope.columnIndex, $scope.widgetIndex];
+            // get the elements
+            var draggerElement = configuration.columns[draggerPosition[0]].widgets[draggerPosition[1]];
+            var dropeeElement =  configuration.columns[dropeePosition[0]].widgets[dropeePosition[1]];
+            // swap the elements
+            configuration.columns[draggerPosition[0]].widgets[draggerPosition[1]] = dropeeElement;
+            configuration.columns[dropeePosition[0]].widgets[dropeePosition[1]] = draggerElement;
+            // assign configurations
+            $scope.configuration.columns = configuration.columns;
+
             _obj._draggedTile.removeClass("md-widget-engine-widget-dashed");
             $element.removeClass("md-widget-engine-widget-dashed");
-
+            setTimeout(function(){$scope.$apply();}, 200);
             // if source and destination are same, well then move on :P
         });
 

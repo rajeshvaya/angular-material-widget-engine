@@ -2,10 +2,10 @@
     <div class="md-widget-engine">
         <div layout="row" flex style="height: 100%">
             <md-widget-engine-column 
-                ng-repeat="c in configuration.columns" 
-                column="c" 
-                flex="{{c.size}}"
-                style="background-color: {{c.background}} "
+                ng-repeat="(columnIndex, column) in configuration.columns" 
+                column="column" 
+                flex="{{column.size}}"
+                style="background-color: {{column.background}} "
             ></md-widget-engine-column>
         </div>
     </div>
