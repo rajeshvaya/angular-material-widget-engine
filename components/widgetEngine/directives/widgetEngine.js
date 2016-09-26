@@ -78,6 +78,7 @@ function mdWidgetEngineWidgetTileDirectiveController(){
 
         $element.on('dragstart', function(event){
             // only drag when initiated by child
+            event.stopPropagation();
             if(!event._initiatedByDragger){
                 if(!(event.dataTransfer.types && event.dataTransfer.types.length)){
                     event.preventDefault();
@@ -86,30 +87,43 @@ function mdWidgetEngineWidgetTileDirectiveController(){
                 return;
             }
             $element.addClass("md-widget-engine-widget-moving");
-            event.dataTransfer.setData("Text", angular.toJson($scope.$eval(true)));
+            event.dataTransfer.setData("text/html", this.innerHTML);
             event.dataTransfer.effectAllowed = "move";
+            event.dataTransfer.dropEffect = "move";
             event.dataTransfer.setDragImage($element[0], 20, 20);
-            _obj._draggedTile = this;
+            _obj._draggedTile = $element;
         });
 
         $element.on('dragenter', function(event){
             if($element.hasClass('md-widget-engine-widget-moving')) return;
             $element.addClass("md-widget-engine-widget-dashed");
+            event.stopPropagation();
+        });
+
+        $element.on('dragover', function(event){
+            if($element.hasClass('md-widget-engine-widget-moving')) return;
+            $element.addClass("md-widget-engine-widget-dashed");
+            event.stopPropagation();
+            if(event.preventDefault) event.preventDefault();
         });
 
         $element.on('dragleave', function(event){
             $element.removeClass("md-widget-engine-widget-dashed");
-        });
-
-        $element.on('drop', function(event){
-            console.log("hiiiiii");
-            // if source and destination are same, well then move on :P
+            event.stopPropagation();
         });
 
         $element.on('dragend', function(event){
             event = event.originalEvent || event;
             $element.removeClass("md-widget-engine-widget-moving");
             return event.stopPropagation();
+        });
+
+        $element.on('drop', function(event){
+            console.log("hiiii");
+            _obj._draggedTile.removeClass("md-widget-engine-widget-dashed");
+            $element.removeClass("md-widget-engine-widget-dashed");
+
+            // if source and destination are same, well then move on :P
         });
 
     };
