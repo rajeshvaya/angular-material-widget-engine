@@ -12,29 +12,29 @@ function mdWidgetEngineColumnDirective(){
     return {
         scope: false,
         templateUrl: "components/widgetEngine/views/widgetEngineColumn.html",
-        controller: function($scope, $element, $attrs, $transclude, $document){
-            $scope.Math = window.Math;
+        controller: function($scope, $element, $attrs, $transclude, $document, $timeout){
             var mouseMove = function(e){
                 // console.log("mouse moving", e);
-                var newX = e.clientX;
-                var newFlex = parseInt(newX / $scope.configuration.width * 100, 0);
-                var nearestFlex = window.Math.ceil(newFlex / 5) * 5; // nearest 5
-                $scope.column.size = nearestFlex;
-                console.log(nearestFlex);
+                $timeout(function(){
+                    var newX = e.clientX;
+                    var differenceXPercentage =  ((newX - $element[0].children[0].offsetLeft) / $scope.configuration.width) * 100;
+                    if($scope.configuration.columns[$scope.columnIndex + 1]) $scope.configuration.columns[$scope.columnIndex + 1].size -= differenceXPercentage - $scope.column.size;
+                    $scope.column.size = differenceXPercentage;
+                });
+                
             };
 
             var mouseUp = function(){
-                console.log("mouse up");
+                // console.log("mouse up");
                 $document.unbind('mouseup', mouseUp);
                 $document.unbind('mousemove', mouseMove);
             };
 
             $scope.setupColumnResizing = function(e){
                 event.preventDefault();
-                console.log("mouse down", e);
+                // console.log("mouse down", e);
                 $document.on('mouseup', mouseUp);
                 $document.on('mousemove', mouseMove);
-
             };
 
         },

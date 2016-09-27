@@ -4,8 +4,7 @@
             <md-widget-engine-column 
                 ng-repeat="(columnIndex, column) in configuration.columns" 
                 column="column" 
-                flex="{{column.size}}"
-                style="background-color: {{column.background}} "
+                style="background-color: {{column.background}}; width: {{column.size}}%; min-width: 15%;"
             ></md-widget-engine-column>
         </div>
     </div>

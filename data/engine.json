@@ -4,7 +4,7 @@
         {
             "name": "column1",
             "background": "#e9ebee",
-            "size": 75,
+            "size": 55,
             "widgets":[
                 {
                     "name": "report_1", "title": "Report One",
@@ -19,6 +19,17 @@
         {
             "name": "column2",
             "size": 25,
+            "background": "#e9ebee",
+            "widgets":[
+                {"name": "report_3", "title": "Report Three", "type": "include", "content": "/data/widgets/report_3.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
+                {"name": "report_4", "title": "Report Four", "type": "include", "content": "/data/widgets/report_4.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
+                {"name": "report_5", "title": "Report Five", "type": "include", "content": "/data/widgets/report_5.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"}
+            ]
+        },
+
+        {
+            "name": "column2",
+            "size": 20,
             "background": "#e9ebee",
             "widgets":[
                 {"name": "report_3", "title": "Report Three", "type": "include", "content": "/data/widgets/report_3.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},

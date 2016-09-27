@@ -14,10 +14,10 @@
 
 .md-widget-engine-column-resizer{
   position: absolute;
-  top: 50%;
-  right: 0;
-  height: 30px;
-  border: 3px solid red;
+  top: 0;
+  right: -3px;
+  height: 100%;
+  border: 3px solid transparent;
   cursor: move;
 }
 
