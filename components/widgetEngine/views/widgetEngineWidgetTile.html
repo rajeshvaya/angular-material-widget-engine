@@ -9,7 +9,7 @@
                     </div>
                     <span flex></span>
                     <div class="md-widget-engine-widget-tile-controls-container" >
-                        <div class="md-widget-engine-widget-tile-control" ng-click="removeWidget()">
+                        <div class="md-widget-engine-widget-tile-control" ng-mouseup="removeWidget($event)">
                             <span class="md-widget-engine-widget-close-control"><ng-md-icon icon="close" style="fill: lightwhite; font-weight: lighter" size="24"></ng-md-icon></span>
                         </div>
                         <div class="md-widget-engine-widget-tile-control" ng-click="toggleFullscreen()">

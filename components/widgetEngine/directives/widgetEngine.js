@@ -97,12 +97,12 @@ function mdWidgetEngineWidgetTileDirectiveController(){
             $scope.fullscreen = !$scope.fullscreen;
         };
 
-        $scope.removeWidget = function(){
+        $scope.removeWidget = function(e){
             var confirm = $mdDialog.confirm()
                           .title('Are you sure?')
                           .textContent('Remove the "' + $scope.widget.title + '" widget?')
                           .ariaLabel('Are you sure you want to remove the widget')
-                          // .targetEvent(ev)
+                          .targetEvent(e)
                           .ok('Yes')
                           .cancel('Cancel');
 
