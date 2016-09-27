@@ -28,6 +28,7 @@ function mdWidgetEngineColumnDirective(){
                 // console.log("mouse up");
                 $document.unbind('mouseup', mouseUp);
                 $document.unbind('mousemove', mouseMove);
+                $scope.callback("resize", $scope.configuration);
             };
 
             $scope.setupColumnResizing = function(e){
