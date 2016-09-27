@@ -1,6 +1,6 @@
 // app
 angular
-    .module('ngMdWidgetEngine', ['ngMaterial'])
+    .module('ngMdWidgetEngine', ['ngMaterial', 'ngMdIcons'])
     .directive('mdWidgetEngineWidgetDragger', mdWidgetEngineWidgetTileDragger)
     .directive('mdWidgetEngineWidgetTile', mdWidgetEngineWidgetTileDirective)
     .directive('mdWidgetEngineColumn', mdWidgetEngineColumnDirective)
@@ -61,6 +61,11 @@ function mdWidgetEngineWidgetTileDirectiveController(){
     _obj._draggedTile = null;
 
     _obj.controller = function($scope, $element, $attrs, $transclude){
+
+        $scope.toggleFullscreen = function(){
+            $element.toggleClass('md-widget-engine-widget-fullscreen');
+        }
+
         $element.attr("draggable", "true");
         $element.on('dragstart', function(event){
             // only drag when initiated by child
@@ -126,7 +131,7 @@ function mdWidgetEngineWidgetTileDirectiveController(){
             setTimeout(function(){
                 $scope.$apply();
                 $scope.callback("update", configuration);
-            }, 200);
+            }, 150);
             // if source and destination are same, well then move on :P
         });
 

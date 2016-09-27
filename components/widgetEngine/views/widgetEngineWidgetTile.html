@@ -3,10 +3,20 @@
 
         <div class="md-widget-engine-widget-tile-title-container">
             <md-toolbar class="md-whiteframe-2dp">
-                <div class="md-widget-engine-widget-tile-title">
-                    <!-- <span class="md-widget-engine-widget-tile-dragger">:::</span> -->
-                    <span style="cursor: pointer" md-widget-engine-widget-dragger>{{widget.title || 'Widget'}}</span>
-                </div>
+                <div class="md-toolbar-tools">
+                    <div class="md-widget-engine-widget-tile-title">
+                        <span style="cursor: pointer" md-widget-engine-widget-dragger>{{widget.title || 'Widget'}}</span>
+                    </div>
+                    <span flex></span>
+                    <div class="md-widget-engine-widget-tile-controls-container" >
+                        <div class="md-widget-engine-widget-tile-control">
+                            <span class="md-widget-engine-widget-close-control"><ng-md-icon icon="close" style="fill: lightwhite; font-weight: lighter" size="24"></ng-md-icon></span>
+                        </div>
+                        <div class="md-widget-engine-widget-tile-control" ng-click="toggleFullscreen()">
+                            <span class="md-widget-engine-widget-fullscreen-control"><ng-md-icon icon="fullscreen" style="fill: lightwhite; font-weight: lighter" size="24"></ng-md-icon></span>
+                        </div>
+                    </div>
+                </div><!-- md-toolbar-tools -->
             </md-toolbar>
         </div>
 
