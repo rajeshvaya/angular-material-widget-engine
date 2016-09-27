@@ -1,4 +1,6 @@
-<div class="md-widget-engine-column" style="height:100%">
+<div class="md-widget-engine-column" style="height:100%; position:relative">
+    
+    <span class="md-widget-engine-column-resizer" ng-mousedown="setupColumnResizing($event)"> </span>
     <div class="md-widget-engine-widget-tiles-container">
         <md-widget-engine-widget-tile ng-repeat="(widgetIndex, widget) in column.widgets" widget="widget" widgetIndex="widgetIndex"></md-widget-engine-widget-tile>
     </div>

@@ -1,4 +1,4 @@
-<div class="md-widget-engine-widget-tile-container">
+<div class="md-widget-engine-widget-tile-container {{fullscreen ? 'md-widget-engine-widget-fullscreen' : ''}}">
     <div class="md-widget-engine-widget-tile md-whiteframe-2dp">
 
         <div class="md-widget-engine-widget-tile-title-container">
@@ -9,7 +9,7 @@
                     </div>
                     <span flex></span>
                     <div class="md-widget-engine-widget-tile-controls-container" >
-                        <div class="md-widget-engine-widget-tile-control">
+                        <div class="md-widget-engine-widget-tile-control" ng-click="removeWidget()">
                             <span class="md-widget-engine-widget-close-control"><ng-md-icon icon="close" style="fill: lightwhite; font-weight: lighter" size="24"></ng-md-icon></span>
                         </div>
                         <div class="md-widget-engine-widget-tile-control" ng-click="toggleFullscreen()">

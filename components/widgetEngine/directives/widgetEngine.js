@@ -12,7 +12,32 @@ function mdWidgetEngineColumnDirective(){
     return {
         scope: false,
         templateUrl: "components/widgetEngine/views/widgetEngineColumn.html",
-        controller: function($scope, $element, $attrs, $transclude){},
+        controller: function($scope, $element, $attrs, $transclude, $document){
+            $scope.Math = window.Math;
+            var mouseMove = function(e){
+                // console.log("mouse moving", e);
+                var newX = e.clientX;
+                var newFlex = parseInt(newX / $scope.configuration.width * 100, 0);
+                var nearestFlex = window.Math.ceil(newFlex / 5) * 5; // nearest 5
+                $scope.column.size = nearestFlex;
+                console.log(nearestFlex);
+            };
+
+            var mouseUp = function(){
+                console.log("mouse up");
+                $document.unbind('mouseup', mouseUp);
+                $document.unbind('mousemove', mouseMove);
+            };
+
+            $scope.setupColumnResizing = function(e){
+                event.preventDefault();
+                console.log("mouse down", e);
+                $document.on('mouseup', mouseUp);
+                $document.on('mousemove', mouseMove);
+
+            };
+
+        },
         link: function($scope, iElm, iAttrs, controller) {}
     };
 }
@@ -49,7 +74,11 @@ function mdWidgetEngineDirective(){
             callback: "=callback"
         },
         templateUrl: "components/widgetEngine/views/widgetEngine.html",
-        controller: function($scope, $element, $attrs, $transclude){},
+        controller: function($scope, $element, $attrs, $transclude, $timeout){
+            $timeout(function(){
+                $scope.configuration.width = $element[0].children[0].offsetWidth;
+            });
+        },
         link: function($scope, iElm, iAttrs, controller) {}
     };
 }
@@ -60,23 +89,43 @@ function mdWidgetEngineWidgetTileDirectiveController(){
     var _obj = {};
     _obj._draggedTile = null;
 
-    _obj.controller = function($scope, $element, $attrs, $transclude){
+    _obj.controller = function($scope, $element, $attrs, $transclude, $mdDialog, $timeout){
+        $scope.fullscreen = false;
 
         $scope.toggleFullscreen = function(){
-            $element.toggleClass('md-widget-engine-widget-fullscreen');
-        }
+            $scope.fullscreen = !$scope.fullscreen;
+        };
+
+        $scope.removeWidget = function(){
+            var confirm = $mdDialog.confirm()
+                          .title('Are you sure?')
+                          .textContent('Remove the "' + $scope.widget.title + '" widget?')
+                          .ariaLabel('Are you sure you want to remove the widget')
+                          // .targetEvent(ev)
+                          .ok('Yes')
+                          .cancel('Cancel');
+
+            $mdDialog.show(confirm).then(function(){
+                $element.addClass('md-widget-engine-widget-remove');
+                $timeout(function(){
+                    var removedWidget = $scope.configuration.columns[$scope.columnIndex].widgets.splice($scope.widgetIndex, 1);
+                }, 200);
+            }, function(){});
+        };
 
         $element.attr("draggable", "true");
+
         $element.on('dragstart', function(event){
             // only drag when initiated by child
             event.stopPropagation();
-            if(!event._initiatedByDragger){
+            if(!event._initiatedByDragger || $scope.fullscreen){
                 if(!(event.dataTransfer.types && event.dataTransfer.types.length)){
                     event.preventDefault();
                 }
                 event.stopPropagation();
                 return;
             }
+            // $scope.fullscreen = false; //incase, you know
             $element.addClass("md-widget-engine-widget-moving");
             var draggerPosition = $scope.columnIndex + "::" + $scope.widgetIndex;
             event.dataTransfer.setData("Text", draggerPosition);
