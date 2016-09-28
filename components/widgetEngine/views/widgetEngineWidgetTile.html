@@ -23,11 +23,11 @@
         <div class="md-widget-engine-widget-tile-content-container">
             <md-content>
                 <div class="md-widget-engine-widget-tile-content resize-vertical" style="min-height:{{widget.minHeight}}px; max-height:widget.maxHeight">
-                    {{widget.title}} content<br/>
-                    {{widget.title}} content<br/>
-                    {{widget.title}} content<br/>
-                    {{widget.title}} content<br/>
-                    {{widget.title}} content<br/>
+                    <div ng-switch on="widget.type">
+                        <div ng-switch-when="include">
+                            <ng-include src="widget.content"></ng-include>
+                        </div><!-- ng-switch-when -->
+                    </div> <!-- ng-switch -->
                 </div>
             </md-content>    
         </div>
