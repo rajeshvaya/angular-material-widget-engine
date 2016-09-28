@@ -144,9 +144,9 @@ function mdWidgetEngineWidgetTileDirectiveController(){
     var _obj = {};
     _obj._draggedTile = null;
 
-    _obj.controller = function($scope, $element, $attrs, $transclude, $mdDialog, $timeout){
+    _obj.controller = function($scope, $element, $attrs, $transclude, $mdDialog, $timeout, $sce){
         $scope.fullscreen = false;
-
+        $scope.widget.content = $sce.trustAsResourceUrl($scope.widget.content);
         $scope.toggleFullscreen = function(){
             $scope.fullscreen = !$scope.fullscreen;
         };
