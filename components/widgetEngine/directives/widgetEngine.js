@@ -44,7 +44,6 @@ function mdWidgetEngineColumnDirective(){
                 newColumn.size = '';
                 $timeout(function(){
                     $scope.configuration.columns.splice($scope.columnIndex + 1, 0, newColumn);
-                    console.log(newColumn);
                 });
             };
 
@@ -70,7 +69,6 @@ function mdWidgetEngineColumnDirective(){
 
             $element.on('drop', function(event){
 
-                var configuration = angular.copy($scope.configuration);
                 // get the positions of swappers
                 var draggerPosition = (event.dataTransfer.getData("Text") || event.dataTransfer.getData("text/plain")).split("::");
                 if($scope.columnIndex == draggerPosition[0]){
@@ -78,14 +76,14 @@ function mdWidgetEngineColumnDirective(){
                     return;  // if dropping in the same column  
                 }
                 // get the elements
-                var draggerElement = configuration.columns[draggerPosition[0]].widgets[draggerPosition[1]];
+                var draggerElement = $scope.configuration.columns[draggerPosition[0]].widgets[draggerPosition[1]];
                 // swap the elements
-                var removedWidget = configuration.columns[draggerPosition[0]].widgets.splice(draggerPosition[1], 1)[0];
-                configuration.columns[$scope.columnIndex].widgets.push(removedWidget);
+                var removedWidget = $scope.configuration.columns[draggerPosition[0]].widgets.splice(draggerPosition[1], 1)[0];
+                $scope.configuration.columns[$scope.columnIndex].widgets.push(removedWidget);
                 // assign configurations
-                $scope.configuration.columns = configuration.columns;
                 $element.removeClass("md-widget-engine-column-dashed");
-                setTimeout(function(){
+                $document.find(".md-widget-engine-column-dashed").removeClass('md-widget-engine-column-dashed');
+                $timeout(function(){
                     $scope.$apply();
                     $scope.callback("update", configuration);
                 }, 150);
@@ -144,7 +142,7 @@ function mdWidgetEngineWidgetTileDirectiveController(){
     var _obj = {};
     _obj._draggedTile = null;
 
-    _obj.controller = function($scope, $element, $attrs, $transclude, $mdDialog, $timeout, $sce){
+    _obj.controller = function($scope, $element, $attrs, $transclude, $mdDialog, $timeout, $sce, $document){
         $scope.fullscreen = false;
         $scope.widget._internalSettings = {};
         $scope.widget._internalSettings.trustedURL = $sce.trustAsResourceUrl($scope.widget.content);
@@ -207,7 +205,7 @@ function mdWidgetEngineWidgetTileDirectiveController(){
 
         $element.on('dragleave', function(event){
             $element.removeClass("md-widget-engine-widget-dashed");
-            event.stopPropagation();
+            // event.stopPropagation();
         });
 
         $element.on('dragend', function(event){
@@ -218,25 +216,24 @@ function mdWidgetEngineWidgetTileDirectiveController(){
 
         $element.on('drop', function(event){
             event.stopPropagation();
-            var configuration = angular.copy($scope.configuration);
+            
             // get the positions of swappers
             var draggerPosition = (event.dataTransfer.getData("Text") || event.dataTransfer.getData("text/plain")).split("::");
             if($scope.columnIndex == draggerPosition[0] && $scope.widgetIndex == draggerPosition[1]) return; // no need to drop at the same place
             var dropeePosition = [$scope.columnIndex, $scope.widgetIndex];
             // get the elements
-            var draggerElement = configuration.columns[draggerPosition[0]].widgets[draggerPosition[1]];
-            var dropeeElement =  configuration.columns[dropeePosition[0]].widgets[dropeePosition[1]];
+            var draggerElement = $scope.configuration.columns[draggerPosition[0]].widgets[draggerPosition[1]];
+            var dropeeElement =  $scope.configuration.columns[dropeePosition[0]].widgets[dropeePosition[1]];
             // swap the elements
-            configuration.columns[draggerPosition[0]].widgets[draggerPosition[1]] = dropeeElement;
-            configuration.columns[dropeePosition[0]].widgets[dropeePosition[1]] = draggerElement;
-            // assign configurations
-            $scope.configuration.columns = configuration.columns;
-
+            $scope.configuration.columns[draggerPosition[0]].widgets[draggerPosition[1]] = dropeeElement;
+            $scope.configuration.columns[dropeePosition[0]].widgets[dropeePosition[1]] = draggerElement;
+            
             _obj._draggedTile.removeClass("md-widget-engine-widget-dashed");
             $element.removeClass("md-widget-engine-widget-dashed");
+
             setTimeout(function(){
                 $scope.$apply();
-                $scope.callback("update", configuration);
+                $scope.callback("update", $scope.configuration);
             }, 150);
             // if source and destination are same, well then move on :P
         });

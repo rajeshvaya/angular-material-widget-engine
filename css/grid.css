@@ -62,19 +62,18 @@
 
 .md-widget-engine-widget-tile-container{
   padding: 10px 20px;
-  /*-webkit-transition: -webkit-transform 0.25s ease-out;
-  -moz-transition: -moz-transform 0.25s ease-out;
-  -o-transition: -o-transform 0.25s ease-out;
-  -ms-transition: -ms-transform 0.25s ease-out;  */
-  -webkit-transition: all 0.25s;
+  /*-webkit-transition: all 0.25s;
   -moz-transition: all 0.25s;
   -o-transition: all 0.25s;
-  -ms-transition: all 0.25s;
-
+  -ms-transition: all 0.25s;*/
 }
 
 .md-widget-engine-widget-tile-container.md-widget-engine-widget-moving{
   opacity: 0.25;
+  -webkit-transition: -webkit-transform 0.25s ease-out;
+  -moz-transition: -moz-transform 0.25s ease-out;
+  -o-transition: -o-transform 0.25s ease-out;
+  -ms-transition: -ms-transform 0.25s ease-out;  
   transform: scale(0.8);
   -webkit-transform: scale(0.8);
   -moz-transform: scale(0.8);
