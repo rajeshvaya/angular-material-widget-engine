@@ -85,7 +85,7 @@ function mdWidgetEngineColumnDirective(){
                 $document.find(".md-widget-engine-column-dashed").removeClass('md-widget-engine-column-dashed');
                 $timeout(function(){
                     $scope.$apply();
-                    $scope.callback("update", configuration);
+                    $scope.callback("update", $scope.configuration);
                 }, 150);
                 // if source and destination are same, well then move on :P
             });
