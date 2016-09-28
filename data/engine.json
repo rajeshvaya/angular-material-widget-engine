@@ -32,9 +32,9 @@
             "size": 20,
             "background": "#e9ebee",
             "widgets":[
-                {"name": "report_3", "title": "Report Three", "type": "include", "content": "/data/widgets/report_3.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
-                {"name": "report_4", "title": "Report Four", "type": "include", "content": "/data/widgets/report_4.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
-                {"name": "report_5", "title": "Report Five", "type": "include", "content": "/data/widgets/report_5.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"}
+                {"name": "report_3", "title": "Report Six", "type": "include", "content": "/data/widgets/report_6.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
+                {"name": "report_4", "title": "Report Seven", "type": "include", "content": "/data/widgets/repor_7.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
+                {"name": "report_5", "title": "Report Eight", "type": "include", "content": "/data/widgets/report_8.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"}
             ]
         }
     ]

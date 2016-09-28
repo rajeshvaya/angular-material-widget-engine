@@ -1,3 +1,7 @@
+.app-container{
+  height: 100%;
+}
+
 .resize-vertical{
   min-height: 20px;
   resize: vertical;
@@ -9,14 +13,21 @@
 }
 
 .md-widget-engine-column{
+  box-sizing: border-box;
   border-right: 1px dashed #aaa;
+  
 }
+
+.md-widget-engine-column-dashed{
+  border: 2px dashed black;
+}
+
 
 .md-widget-engine-column-resizer{
   position: absolute;
   top: 0;
   right: -3px;
-  height: 100%;
+  height: 99%;
   border: 3px solid transparent;
   cursor: move;
 }
@@ -48,7 +59,7 @@
 }
 
 .md-widget-engine-widget-tile-container.md-widget-engine-widget-dashed{
-  border: 3px dashed black;
+  border: 2px dashed black;
 }
 
 .md-widget-engine-widget-tile-container.md-widget-engine-widget-remove{
