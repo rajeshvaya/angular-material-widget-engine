@@ -1,6 +1,18 @@
 <div class="md-widget-engine-column" style="height:100%; position:relative">
     
-    <span class="md-widget-engine-column-resizer" ng-mousedown="setupColumnResizing($event)" ng-show="configuration.columns.length-1 > columnIndex"></span>
+    <span class="md-widget-engine-column-resizer" ng-mousedown="setupColumnResizing($event)" ng-show="configuration.columns.length-1 > columnIndex">
+    </span>
+    <div class="md-widget-engine-new-column-handler" ng-show="configuration.columns.length-1 > columnIndex">
+        <div ng-click="addNewColumn()" ng-show="column.widgets.length > 0 && configuration.columns.length < 6">
+            <md-tooltip md-direction="right">Add new column here</md-tooltip>
+            <ng-md-icon icon="add_circle" style="fill: black; font-weight: lighter" size="24" md-ink-ripple="#FFFFFF">
+        </div>
+        <div ng-click="removeEmptyColumn()" ng-show="column.widgets.length == 0">
+            <md-tooltip md-direction="left">Remove this column</md-tooltip>
+            <ng-md-icon icon="remove_circle" style="fill: black; font-weight: lighter" size="24" md-ink-ripple="#FFFFFF">
+        </div>
+    </div>
+
     <div class="md-widget-engine-widget-tiles-container">
         <md-widget-engine-widget-tile ng-repeat="(widgetIndex, widget) in column.widgets" widget="widget" widgetIndex="widgetIndex"></md-widget-engine-widget-tile>
     </div>

@@ -1,5 +1,6 @@
 .app-container{
   height: 100%;
+  overflow-x:scroll;
 }
 
 .resize-vertical{
@@ -23,13 +24,36 @@
 }
 
 
-.md-widget-engine-column-resizer{
+.md-widget-engine-column .md-widget-engine-column-resizer{
   position: absolute;
   top: 0;
   right: -3px;
   height: 99%;
   border: 3px solid transparent;
   cursor: move;
+}
+
+
+.md-widget-engine-column .md-widget-engine-new-column-handler{
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  display: none;
+}
+
+.md-widget-engine-column:hover .md-widget-engine-new-column-handler{
+  display: block;
+}
+
+
+.md-widget-engine-column .md-widget-engine-new-column-handler{
+  position: absolute;
+  bottom: 10px;
+  right: -12px;
+  cursor: pointer;
+  z-index: 1000;
 }
 
 .md-widget-engine-widget-tiles-container{

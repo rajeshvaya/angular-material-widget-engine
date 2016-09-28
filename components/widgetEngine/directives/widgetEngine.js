@@ -38,6 +38,20 @@ function mdWidgetEngineColumnDirective(){
                 $document.on('mousemove', mouseMove);
             };
 
+            $scope.addNewColumn = function(){
+                var newColumn = angular.copy($scope.configuration.columns[$scope.columnIndex]);
+                newColumn.widgets = []; // reset the columns
+                newColumn.size = '';
+                $timeout(function(){
+                    $scope.configuration.columns.splice($scope.columnIndex + 1, 0, newColumn);
+                    console.log(newColumn);
+                });
+            };
+
+            $scope.removeEmptyColumn = function(){
+                var removedColumn = $scope.configuration.columns.splice($scope.columnIndex, 1);
+            };
+
             $element.on('dragenter', function(event){
                 $element.addClass("md-widget-engine-column-dashed");
                 event.stopPropagation();
@@ -154,7 +168,7 @@ function mdWidgetEngineWidgetTileDirectiveController(){
             }, function(){});
         };
 
-        $element.attr("draggable", "true");
+        // $element.attr("draggable", "true");
 
         $element.on('dragstart', function(event){
             // only drag when initiated by child
