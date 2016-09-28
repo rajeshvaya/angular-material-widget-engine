@@ -146,7 +146,8 @@ function mdWidgetEngineWidgetTileDirectiveController(){
 
     _obj.controller = function($scope, $element, $attrs, $transclude, $mdDialog, $timeout, $sce){
         $scope.fullscreen = false;
-        $scope.widget.content = $sce.trustAsResourceUrl($scope.widget.content);
+        $scope.widget._internalSettings = {};
+        $scope.widget._internalSettings.trustedURL = $sce.trustAsResourceUrl($scope.widget.content);
         $scope.toggleFullscreen = function(){
             $scope.fullscreen = !$scope.fullscreen;
         };
