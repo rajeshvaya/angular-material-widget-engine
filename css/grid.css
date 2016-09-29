@@ -177,6 +177,7 @@
 
 
 
-.md-widget-engine-widget-fullscreen .md-widget-engine-widget-close-control{
+.md-widget-engine-widget-fullscreen .md-widget-engine-widget-close-control,
+.md-widget-engine-widget-fullscreen .md-widget-engine-widget-sticky-control{
   display: none;
 }

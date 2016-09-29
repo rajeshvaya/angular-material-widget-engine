@@ -6,7 +6,18 @@
             "background": "#e9ebee",
             "size": 55,
             "widgets":[
-                {"name": "report_1", "title": "Report One", "type": "iframe", "content": "/data/widgets/iframe_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
+                {
+                    "name": "report_1", 
+                    "title": "Report One", 
+                    "type": "iframe", 
+                    "content": "/data/widgets/iframe_1.html", 
+                    "refresh": 10, 
+                    "resize": true, 
+                    "minHeight": "auto", 
+                    "maxHeight": "auto",
+                    "sticky": true,
+                    "stickyControl": true
+                },
                 {"name": "report_2", "title": "Report Two", "type": "include", "content": "/data/widgets/report_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"}
             ]
         },

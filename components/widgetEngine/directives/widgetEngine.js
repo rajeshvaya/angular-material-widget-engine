@@ -111,6 +111,7 @@ function mdWidgetEngineWidgetTileDragger(){
     return function($scope, $element, $attrs, $transclude){
         $element.attr('draggable', 'true');
         $element.on('dragstart dragend', function(event){
+            if($scope.widget.sticky) return;
             event = event.originalEvent || event;
             event._initiatedByDragger = true; // this is to inform the parent widget that dragging is started by dragging the child element i.e. the dragger
         });
@@ -148,6 +149,10 @@ function mdWidgetEngineWidgetTileDirectiveController(){
         $scope.widget._internalSettings.trustedURL = $sce.trustAsResourceUrl($scope.widget.content);
         $scope.toggleFullscreen = function(){
             $scope.fullscreen = !$scope.fullscreen;
+        };
+
+        $scope.toggleSticky = function(){
+            $scope.widget.sticky = !$scope.widget.sticky;
         };
 
         $scope.removeWidget = function(e){
@@ -191,32 +196,38 @@ function mdWidgetEngineWidgetTileDirectiveController(){
         });
 
         $element.on('dragenter', function(event){
+            event.stopPropagation();
+            if($scope.widget.sticky) return false;
             if($element.hasClass('md-widget-engine-widget-moving')) return;
             $element.addClass("md-widget-engine-widget-dashed");
-            event.stopPropagation();
         });
 
         $element.on('dragover', function(event){
+            event.stopPropagation();
+            if($scope.widget.sticky) return false;
             if($element.hasClass('md-widget-engine-widget-moving')) return;
             $element.addClass("md-widget-engine-widget-dashed");
-            event.stopPropagation();
             if(event.preventDefault) event.preventDefault();
         });
 
         $element.on('dragleave', function(event){
+            event.stopPropagation();
+            if($scope.widget.sticky) return false;
             $element.removeClass("md-widget-engine-widget-dashed");
-            // event.stopPropagation();
         });
 
         $element.on('dragend', function(event){
+            event.stopPropagation();
+            if($scope.widget.sticky) return false;
             event = event.originalEvent || event;
             $element.removeClass("md-widget-engine-widget-moving");
-            return event.stopPropagation();
+            
         });
 
         $element.on('drop', function(event){
             event.stopPropagation();
-            
+            if($scope.widget.sticky) return false;
+
             // get the positions of swappers
             var draggerPosition = (event.dataTransfer.getData("Text") || event.dataTransfer.getData("text/plain")).split("::");
             if($scope.columnIndex == draggerPosition[0] && $scope.widgetIndex == draggerPosition[1]) return; // no need to drop at the same place
