@@ -50,6 +50,21 @@ function mdWidgetEngineColumnDirective(){
 
             $scope.removeEmptyColumn = function(){
                 var removedColumn = $scope.configuration.columns.splice($scope.columnIndex, 1);
+                // check if the total width is less than 100% due to resizing of last column and deleting an empty column
+                var totalWidth = 0;
+                $scope.configuration.columns.forEach(function(c){
+                    totalWidth+= c.size;
+                });
+                if(totalWidth < 100){
+                    // increase the width of columns after the deleted one, equally
+                    var currentDeletedColumn = $scope.columnIndex;
+                    var totalColumns = $scope.configuration.columns.length;
+                    var affectedColumns = totalColumns - currentDeletedColumn;
+                    var distributeWidth = (100 - totalWidth) / affectedColumns;
+                    for(var i=currentDeletedColumn; i<totalColumns; i++){
+                        $scope.configuration.columns[i].size += distributeWidth;
+                    }
+                }
             };
 
             $element.on('dragenter', function(event){
