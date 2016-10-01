@@ -57,11 +57,11 @@
 }
 
 .md-widget-engine-widget-tiles-container{
-  padding-top:10px;
+  padding-top:8px;
 }
 
 .md-widget-engine-widget-tile-container{
-  padding: 10px 20px;
+  padding: 8px 16px;
   /*-webkit-transition: all 0.25s;
   -moz-transition: all 0.25s;
   -o-transition: all 0.25s;

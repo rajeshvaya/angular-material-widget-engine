@@ -18,7 +18,8 @@ function mdWidgetEngineColumnDirective(){
                 $timeout(function(){
                     var newX = e.clientX;
                     var differenceXPercentage =  ((newX - $element[0].children[0].offsetLeft) / $scope.configuration.width) * 100;
-                    if($scope.configuration.columns[$scope.columnIndex + 1]) $scope.configuration.columns[$scope.columnIndex + 1].size -= differenceXPercentage - $scope.column.size;
+                    if($scope.configuration.columns[$scope.columnIndex + 1])
+                        $scope.configuration.columns[$scope.columnIndex + 1].size -= differenceXPercentage - $scope.column.size;
                     $scope.column.size = differenceXPercentage;
                 });
                 
