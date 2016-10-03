@@ -61,7 +61,7 @@ function mdWidgetEngineColumnDirective(){
                     var totalColumns = $scope.configuration.columns.length;
                     var affectedColumns = totalColumns - currentDeletedColumn;
                     var distributeWidth = (100 - totalWidth) / affectedColumns;
-                    for(var i=currentDeletedColumn; i<totalColumns; i++){
+                    for(var i=currentDeletedColumn-1; i<totalColumns; i++){
                         $scope.configuration.columns[i].size += distributeWidth;
                     }
                 }
