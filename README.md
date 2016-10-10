@@ -13,7 +13,7 @@ A widget engine to create beautiful and interactive dashboards, reports, videos,
 - Add dynamic widgets
 - Remove widgets dynamically
 - Drag and drop widgets
-- Everything configured through single JSON ([sample]((https://github.com/rajeshvaya/angular-material-widget-engine/raw/master/example/data/engine.json)))
+- Everything configured through single JSON ([sample](https://github.com/rajeshvaya/angular-material-widget-engine/raw/master/example/data/engine.json))
 - Callbacks for any change in the widget engine
 
 ## Demo
@@ -23,6 +23,7 @@ A widget engine to create beautiful and interactive dashboards, reports, videos,
 
 - Angular
 - Angular Material
+- Angular Material Icons
 
 ## Usage
 
@@ -53,3 +54,21 @@ function sampleCtrl($scope, $http){
     });
 }
 ```
+
+## Widget Configuration
+
+Key | Value | Description
+--------- | ------- | ------- |
+name | widget-report-1 | Any descriptive name for the widget
+title | Report One | Title displayed in the toolbar for each widget
+type | `include` or `iframe` | The content of widget can be fetched through `ng-include` or any external content through iFrame
+resize | true | It allows the content to be resized vertically by the user
+minHeight | 300 | Minimum height of the widget during resizing
+maxHeight | 500 | Maximum heigh of th widget possible during resizing
+sticky | true | Set it to true if widget should not be replaced or moved by another widget
+sitckyControl | true | Set it to true to allow the lock icon to show up on tool bar so user can toggle the sticky feature
+
+
+
+
+
