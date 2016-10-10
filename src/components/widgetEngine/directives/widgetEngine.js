@@ -1,6 +1,6 @@
 // app
 angular
-    .module('ngMdWidgetEngine', ['ngMaterial', 'ngMdIcons'])
+    .module('ngMdWidgetEngine')
     .directive('mdWidgetEngineWidgetDragger', mdWidgetEngineWidgetTileDragger)
     .directive('mdWidgetEngineWidgetTile', mdWidgetEngineWidgetTileDirective)
     .directive('mdWidgetEngineColumn', mdWidgetEngineColumnDirective)
@@ -11,7 +11,7 @@ angular
 function mdWidgetEngineColumnDirective(){
     return {
         scope: false,
-        templateUrl: "components/widgetEngine/views/widgetEngineColumn.html",
+        templateUrl: "/src/components/widgetEngine/templates/widgetEngineColumn.html",
         controller: function($scope, $element, $attrs, $transclude, $document, $timeout){
             var mouseMove = function(e){
                 // console.log("mouse moving", e);
@@ -116,7 +116,7 @@ function mdWidgetEngineWidgetTileDirective(){
     return {
         scope: false,
         replace: true,
-        templateUrl: "components/widgetEngine/views/widgetEngineWidgetTile.html",
+        templateUrl: "/src/components/widgetEngine/templates/widgetEngineWidgetTile.html",
         controller: mdWidgetEngineWidgetTileDirectiveController(),
         link: function($scope, iElm, iAttrs, controller) {}
     };
@@ -143,7 +143,7 @@ function mdWidgetEngineDirective(){
             configuration: "=configuration",
             callback: "=callback"
         },
-        templateUrl: "components/widgetEngine/views/widgetEngine.html",
+        templateUrl: "/src/components/widgetEngine/templates/widgetEngine.html",
         controller: function($scope, $element, $attrs, $transclude, $timeout){
             $timeout(function(){
                 $scope.configuration.width = $element[0].children[0].offsetWidth;
