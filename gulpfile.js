@@ -41,6 +41,12 @@ gulp.task('css', function() {
     .pipe(notify({ message: 'CSS task complete' }));
 });
 
+// Watch
+gulp.task('watch', function() {
+  gulp.watch('src/**/*.css', ['css']);
+  gulp.watch('src/**/*.js', ['js']);
+});
+
 // lets go
 gulp.task('default', ['clean'], function() {
     gulp.start('js', 'css');
