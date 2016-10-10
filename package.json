@@ -1,17 +1,33 @@
 {
   "name": "angular-material-widget-engine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Widget engine built using angular and angular-material",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "Angular",
-    "material",
+    "angular",
+    "angular-material",
     "widget",
-    "engine"
+    "widget-engine",
+    "dashboard",
+    "drag-and-drop"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rajeshvaya/angular-material-widget-engine"
+  },
   "author": "Rajesh Vaya",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-angular-templatecache": "^2.0.0"
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "angular-aria": "^1.5.8",
+    "angular-material": "^1.1.1",
+    "angular-material-icons": "^0.7.1"
+  }
 }
