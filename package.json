@@ -1,0 +1,17 @@
+{
+  "name": "angular-material-widget-engine",
+  "version": "1.0.0",
+  "description": "Widget engine built using angular and angular-material",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Angular",
+    "material",
+    "widget",
+    "engine"
+  ],
+  "author": "Rajesh Vaya",
+  "license": "ISC"
+}
