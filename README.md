@@ -32,9 +32,11 @@ npm install angular-material-widget-engine
 ```
 
 ```HTML
-<div ng-app="MyApp">
-    <md-widget-engine configuration='data.WEconfiguration' callback="data.WEcallback"></md-widget-engine>
-</div>
+<body ng-app="MyApp">
+    <div ng-controller="sampleCtrl">
+        <md-widget-engine configuration='data.WEconfiguration' callback="data.WEcallback"></md-widget-engine>
+    </div>
+</body>
 ```
 
 ```Javascript
