@@ -70,7 +70,7 @@ sitckyControl | true | Set it to true to allow the lock icon to show up on tool 
 
 ## Theming
 
-Widget engine follows the guildelines set by the `$mdThemingProvider`
+Widget engine follows the guidelines set by the `$mdThemingProvider`
 
 
 
