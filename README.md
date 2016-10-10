@@ -1,7 +1,7 @@
 # Widget Engine
 
 ## Introduction
-A widget engine to create beautiful and interactive dashboards, reports, videos, HTML content to display almost anything in the form of widgets, which can be dragged and dropped, maxmized, customized look and feel for each widget. 
+A widget engine to create beautiful and interactive dashboards, reports, widgets containing HTML content, videos, canvas, what have you to display almost anything in the form of widgets, which can be dragged and dropped, maxmized and customizable look and feel for each widget. 
 
 ## Features
 - Configurable number of columns
@@ -68,7 +68,9 @@ maxHeight | 500 | Maximum heigh of th widget possible during resizing
 sticky | true | Set it to true if widget should not be replaced or moved by another widget
 sitckyControl | true | Set it to true to allow the lock icon to show up on tool bar so user can toggle the sticky feature
 
+## Theming
 
+Widget engine follows the guildelines set by the `$mdThemingProvider`
 
 
 
