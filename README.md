@@ -62,7 +62,7 @@ Key | Value | Description
 --------- | ------- | ------- |
 name | widget-1 | Any descriptive name for the widget
 title | Report One | Title displayed in the toolbar for each widget
-type | `include` or `iframe` or `HTML | The content of widget can be fetched through `ng-include` or any external content through iFrame or simple HTML content string through HTML
+type | `include` or `iframe` or `HTML` | The content of widget can be fetched through `ng-include` or any external content through iFrame or simple HTML content string through HTML
 resize | true | It allows the content to be resized vertically by the user
 minHeight | 300 | Minimum height of the widget during resizing
 maxHeight | 500 | Maximum height of the widget possible during resizing
