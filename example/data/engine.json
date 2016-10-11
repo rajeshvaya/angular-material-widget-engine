@@ -41,7 +41,8 @@
             "widgets":[
                 {"name": "report_3", "title": "Report Six", "type": "include", "content": "/example/data/widgets/report_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
                 {"name": "report_4", "title": "Report Seven", "type": "include", "content": "/example/data/widgets/report_2.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
-                {"name": "report_5", "title": "Report Eight", "type": "include", "content": "/example/data/widgets/report_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"}
+                {"name": "report_5", "title": "Report Eight", "type": "include", "content": "/example/data/widgets/report_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
+                {"name": "report_9", "title": "Report Nine", "type": "html", "content": "<h2>Hello there HTML!</h2>", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"}
             ]
         }
     ]

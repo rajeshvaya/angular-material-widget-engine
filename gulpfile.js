@@ -25,7 +25,7 @@ gulp.task('js', function() {
     .pipe(concat('angular-material-widget-engine.js'))
     .pipe(gulp.dest('./'))
     .pipe(rename({suffix: '.min'}))
-    .pipe(uglify())
+    .pipe(uglify({mangle: false}))
     .pipe(gulp.dest('./'))
     .pipe(notify({ message: 'JS task complete' }));
 });

@@ -54,6 +54,10 @@
                             <iframe ng-src="{{widget._internalSettings.trustedURL}}" frameborder=0 style="border:0px; width:100%; height:auto"></iframe>
                         </div><!-- ng-switch-when -->
 
+                        <div ng-switch-when="html">
+                            <div ng-bind-html="widget._internalSettings.trustedHTML"></div>
+                        </div><!-- ng-switch-when -->
+
                     </div> <!-- ng-switch -->
                 </div>
             </md-content>    

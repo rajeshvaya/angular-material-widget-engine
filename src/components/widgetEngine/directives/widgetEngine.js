@@ -146,7 +146,7 @@ function mdWidgetEngineDirective(){
         templateUrl: "/src/components/widgetEngine/templates/widgetEngine.html",
         controller: function($scope, $element, $attrs, $transclude, $timeout){
             $timeout(function(){
-                $scope.configuration.width = $element[0].children[0].offsetWidth;
+                ($scope.configuration || {}).width = ($element[0].children[0] || {}).offsetWidth;
             });
         },
         link: function($scope, iElm, iAttrs, controller) {}
@@ -163,6 +163,7 @@ function mdWidgetEngineWidgetTileDirectiveController(){
         $scope.fullscreen = false;
         $scope.widget._internalSettings = {};
         $scope.widget._internalSettings.trustedURL = $sce.trustAsResourceUrl($scope.widget.content);
+        $scope.widget._internalSettings.trustedHTML = $sce.trustAsHtml($scope.widget.content);
         $scope.toggleFullscreen = function(){
             $scope.fullscreen = !$scope.fullscreen;
         };
