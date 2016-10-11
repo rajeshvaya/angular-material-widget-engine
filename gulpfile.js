@@ -43,6 +43,7 @@ gulp.task('css', function() {
 
 // Watch
 gulp.task('watch', function() {
+  gulp.watch('src/**/*.html', ['js', 'css']);
   gulp.watch('src/**/*.css', ['css']);
   gulp.watch('src/**/*.js', ['js']);
 });

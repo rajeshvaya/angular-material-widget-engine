@@ -3,13 +3,13 @@
     <span class="md-widget-engine-column-resizer" ng-mousedown="setupColumnResizing($event)" ng-show="configuration.columns.length-1 > columnIndex">
     </span>
     <div class="md-widget-engine-new-column-handler" ng-show="configuration.columns.length-1 > columnIndex">
-        <div ng-click="addNewColumn()" ng-show="column.widgets.length > 0 && configuration.columns.length < 6">
+        <div ng-click="addNewColumn()" ng-show="column.widgets.length > 0 && configuration.columns.length < 6" style="outline: none; border: 0px;">
+            <md-icon class="material-icons md-dark md-24" style="outline: none">add_circle</md-icon>
             <md-tooltip md-direction="right">Add new column here</md-tooltip>
-            <ng-md-icon icon="add_circle" style="fill: black; font-weight: lighter" size="24" md-ink-ripple="#FFFFFF">
         </div>
-        <div ng-click="removeEmptyColumn()" ng-show="column.widgets.length == 0">
+        <div ng-click="removeEmptyColumn()" ng-show="column.widgets.length == 0" style="outline: none; border: 0px;">
+            <md-icon class="material-icons md-dark md-24">remove_circle</md-icon>
             <md-tooltip md-direction="left">Remove this column</md-tooltip>
-            <ng-md-icon icon="remove_circle" style="fill: black; font-weight: lighter" size="24" md-ink-ripple="#FFFFFF">
         </div>
     </div>
 

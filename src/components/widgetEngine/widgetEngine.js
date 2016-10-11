@@ -1,2 +1,2 @@
 angular
-    .module('ngMdWidgetEngine', ['ngMaterial', 'ngMdIcons']);
+    .module('ngMdWidgetEngine', ['ngMaterial']);

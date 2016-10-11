@@ -23,7 +23,7 @@ A widget engine to create beautiful and interactive dashboards, reports, widgets
 
 - Angular
 - Angular Material
-- Angular Material Icons
+- Material Icons Fonts
 
 ## Usage
 

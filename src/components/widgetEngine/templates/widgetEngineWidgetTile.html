@@ -11,26 +11,30 @@
                     <div class="md-widget-engine-widget-tile-controls-container" >
                         <div class="md-widget-engine-widget-tile-control" ng-mouseup="removeWidget($event)">
                             <span class="md-widget-engine-widget-close-control">
-                                <ng-md-icon icon="close" style="fill: lightwhite; font-weight: lighter" size="24">
+                                <md-icon class="material-icons md-light md-24">
+                                    close
                                     <md-tooltip md-direction="bottom">Remove this widget</md-tooltip>
-                                </ng-md-icon>
+                                </md-icon>
                             </span>
                         </div>
                         <div class="md-widget-engine-widget-tile-control" ng-click="toggleSticky()" ng-show="widget.stickyControl">
                             <span class="md-widget-engine-widget-sticky-control">
-                                <ng-md-icon icon="lock_open" style="fill: lightwhite; font-weight: lighter" size="24" ng-if="!widget.sticky">
+                                <md-icon class="material-icons md-light md-24" ng-if="!widget.sticky">
+                                    lock_open
                                     <md-tooltip md-direction="bottom">Make this widget sticky</md-tooltip>
-                                </ng-md-icon>
-                                <ng-md-icon icon="lock" style="fill: lightwhite; font-weight: lighter" size="24" ng-if="widget.sticky">
+                                </md-icon>
+                                <md-icon class="material-icons md-light md-24" ng-if="widget.sticky">
+                                    lock
                                     <md-tooltip md-direction="bottom">Make this widget non-sticky</md-tooltip>
-                                </ng-md-icon>
+                                </md-icon>
                             </span>
                         </div>
                         <div class="md-widget-engine-widget-tile-control" ng-click="toggleFullscreen()">
                             <span class="md-widget-engine-widget-fullscreen-control">
-                                <ng-md-icon icon="fullscreen" style="fill: lightwhite; font-weight: lighter" size="24">
+                                <md-icon class="material-icons md-light md-24">
+                                    fullscreen
                                     <md-tooltip md-direction="bottom">Toggle fullscreen mode</md-tooltip>
-                                </ng-md-icon>
+                                </md-icon>
                             </span>
                         </div>
                     </div>
