@@ -1,0 +1,36 @@
+{
+    "name":"Dashboard",
+    "columns": [
+        {
+            "name": "column1",
+            "size": 45,
+            "background": "#e9ebee",
+            "widgets":[
+                {"name": "report_1", "title": "Report One", "type": "include", "content": "widgets/include_1.html", "resize": true, "minHeight": "auto", "maxHeight": "200"},
+                {"name": "report_2", "title": "HTML Two", "type": "html", "content": "<h2>Hello there HTML! </h2>", "resize": true, "minHeight": "auto", "maxHeight": "auto"},
+                {"name": "report_3", "title": "Report Three", "type": "include", "content": "widgets/include_1.html", "resize": true, "minHeight": "auto", "maxHeight": "200"},
+                {"name": "report_4", "title": "HTML Four", "type": "html", "content": "<h2 style='color: blue;'>Hello there another HTML! </h2>", "resize": true, "minHeight": "auto", "maxHeight": "auto"}
+            ]
+        },
+        {
+            "name": "column2",
+            "size": 25,
+            "background": "#e9ebee",
+            "widgets":[
+                {"name": "report_1", "title": "Report One", "type": "include", "content": "widgets/include_1.html", "resize": true, "minHeight": "auto", "maxHeight": "200"},
+                {"name": "report_2", "title": "HTML Two", "type": "html", "content": "<h2>Hello there HTML! </h2>", "resize": true, "minHeight": "auto", "maxHeight": "auto"},
+                {"name": "report_3", "title": "Report Three", "type": "include", "content": "widgets/include_1.html", "resize": true, "minHeight": "auto", "maxHeight": "200"},
+                {"name": "report_4", "title": "HTML Four", "type": "html", "content": "<h2 style='color: blue;'>Hello there another HTML! </h2>", "resize": true, "minHeight": "auto", "maxHeight": "auto"}
+            ]
+        },
+        {
+            "name": "column3",
+            "size": 30,
+            "background": "#e9ebee",
+            "widgets":[
+                {"name": "report_4", "title": "HTML Four", "type": "html", "content": "<h2>I am locked!</h2><p>Try to move me or replace me :) </p>", "resize": true, "minHeight": "auto", "maxHeight": "auto", "sticky": true, "stickyControl": true},
+                {"name": "report_5", "title": "Video Five", "type": "iframe", "content": "https://www.youtube.com/embed/VPRjCeoBqrI", "resize": true, "minHeight": "300", "maxHeight": "auto"}
+            ]
+        }
+    ]
+}
