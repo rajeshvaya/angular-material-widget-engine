@@ -1,6 +1,6 @@
 {
   "name": "angular-material-widget-engine",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "Widget engine built using angular and angular-material",
   "main": "index.js",
   "scripts": {
