@@ -36,7 +36,7 @@ gulp.task('css', function() {
     .pipe(concat('angular-material-widget-engine.css'))
     .pipe(gulp.dest('./'))
     .pipe(rename({suffix: '.min'}))
-    .pipe(cssnano())
+    .pipe(cssnano({zindex: false}))
     .pipe(gulp.dest('./'))
     .pipe(notify({ message: 'CSS task complete' }));
 });

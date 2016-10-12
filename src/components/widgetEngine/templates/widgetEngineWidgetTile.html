@@ -44,14 +44,14 @@
 
         <div class="md-widget-engine-widget-tile-content-container">
             <md-content>
-                <div class="md-widget-engine-widget-tile-content resize-vertical" style="min-height:{{widget.minHeight}}px; max-height:{{widget.maxHeight}}">
+                <div class="md-widget-engine-widget-tile-content resize-vertical" style="min-height:{{widget.minHeight}}px; height:{{widget.minHeight}}; max-height:{{widget.maxHeight}}; position:relative;">
                     <div ng-switch on="widget.type">
                         <div ng-switch-when="include">
                             <ng-include src="widget.content"></ng-include>
                         </div><!-- ng-switch-when -->
 
                         <div ng-switch-when="iframe">
-                            <iframe ng-src="{{widget._internalSettings.trustedURL}}" frameborder=0 style="border:0px; width:100%; height:auto"></iframe>
+                            <iframe ng-src="{{widget._internalSettings.trustedURL}}" frameborder=0 style="border:0px; width:100%; height:100%"></iframe>
                         </div><!-- ng-switch-when -->
 
                         <div ng-switch-when="html">

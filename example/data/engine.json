@@ -27,6 +27,7 @@
             "size": 25,
             "background": "#e9ebee",
             "widgets":[
+                {"name": "report_5", "title": "Video Five", "type": "iframe", "content": "https://www.youtube.com/embed/VPRjCeoBqrI", "resize": true, "minHeight": "300", "maxHeight": "auto"},
                 {"name": "report_3", "title": "Report Three", "type": "include", "content": "/example/data/widgets/report_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "200"},
                 {"name": "report_4", "title": "Report Four", "type": "include", "content": "/example/data/widgets/report_2.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
                 {"name": "report_5", "title": "Report Five", "type": "include", "content": "/example/data/widgets/report_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"}
