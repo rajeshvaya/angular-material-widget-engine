@@ -29,7 +29,7 @@
             "background": "#e9ebee",
             "widgets":[
                 {"name": "report_4", "title": "HTML Four", "type": "html", "content": "<h2>I am locked!</h2><p>Try to move me or replace me :) </p>", "resize": true, "minHeight": "auto", "maxHeight": "auto", "sticky": true, "stickyControl": true},
-                {"name": "report_5", "title": "Video Five", "type": "iframe", "content": "https://www.youtube.com/embed/VPRjCeoBqrI", "resize": true, "minHeight": "300", "maxHeight": "auto"}
+                {"name": "report_5", "title": "Video Five", "type": "iframe", "content": "https://www.youtube.com/embed/VPRjCeoBqrI", "resize": true, "minHeight": "300", "maxHeight": "300"}
             ]
         }
     ]
