@@ -1,0 +1,30 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<div id="piechart_3d" style="width: 100%; height: 100%;"></div>
+
+<script type="text/javascript">
+  (function(){
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Calls', 'Average per Day'],
+        ['Inbound',     620],
+        ['Outbound',      223],
+        ['Internal',  57],
+        ['Phantom', 200],
+        ['Clean',    420],
+        ['Abandoned',  133]
+      ]);
+
+      var options = {
+        title: 'Calls by type',
+        is3D: true,
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+      chart.draw(data, options);
+    }
+  })();
+</script>
+  

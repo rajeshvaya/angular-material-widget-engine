@@ -1,0 +1,48 @@
+{
+    "name":"Dashboard",
+    "columns": [
+        {
+            "name": "column1",
+            "size": 25,
+            "background": "#e9ebee",
+            "widgets":[
+                {"name": "chart_1", "title": "System Stats", "type": "iframe", "content": "widgets/system_stats.html","minHeight": "150", "maxHeight": "150"},
+                {"name": "chart_1", "title": "Geo Chart", "type": "iframe", "content": "widgets/geo_chart.html","minHeight": "310", "maxHeight": "310"},
+                {"name": "chart_1", "title": "Calls Summary", "type": "iframe", "content": "widgets/pie_chart.html","minHeight": "200", "maxHeight": "200"}
+            ]
+        },
+        {
+            "name": "column2",
+            "size": 25,
+            "background": "#e9ebee",
+            "widgets":[
+                {"name": "chart_1", "title": "Company performance", "type": "iframe", "content": "widgets/bar_chart.html","minHeight": "250", "maxHeight": "250"},
+                {"name": "chart_1", "title": "Channels", "type": "iframe", "content": "widgets/area_chart.html","minHeight": "160", "maxHeight": "160"},
+                {"name": "chart_1", "title": "Yearly Distribution", "type": "iframe", "content": "widgets/combo_chart.html","minHeight": "250", "maxHeight": "250"}
+            ]
+        },
+        {
+            "name": "column3",
+            "size": 15,
+            "background": "#e9ebee",
+            "widgets":[
+                {"name": "chart_1", "title": "SLA", "type": "iframe", "content": "widgets/sla_stats.html","minHeight": "250", "maxHeight": "250"},
+                {"name": "chart_1", "title": "Inbound Calls", "type": "html", "content": "<div style='font-size: 100px; text-align: center;'><b>550</b></div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false},
+                {"name": "chart_1", "title": "Abandoned", "type": "html", "content": "<div style='font-size: 100px; text-align: center;'><b>142</b></div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false},
+                {"name": "chart_1", "title": "Active Calls", "type": "html", "content": "<div style='font-size: 100px; text-align: center;'><b>16</b></div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false}
+            ]
+        },
+        {
+            "name": "column4",
+            "size": 35,
+            "background": "#e9ebee",
+            "widgets":[
+                {"name": "chart_1", "title": "Agents Online", "type": "html", "content": "<div style='font-size: 100px; text-align: center;'><b>33</b></div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false},
+                {"name": "chart_1", "title": "Wait Time", "type": "html", "content": "<div style='font-size: 80px; text-align: center;'><b>21</b></br><small style='font-size:20px;'>seconds</small></div>","minHeight": "155", "maxHeight": "155", "fullscreenControl": false},
+                {"name": "chart_1", "title": "Hold Time", "type": "html", "content": "<div style='font-size: 80px; text-align: center;'><b>43</b></br><small style='font-size:20px;'>seconds</small></div>","minHeight": "155", "maxHeight": "155", "fullscreenControl": false},
+                {"name": "chart_1", "title": "Talk Time", "type": "html", "content": "<div style='font-size: 80px; text-align: center;'><b>2</b></br><small style='font-size:20px;'>minutes</small></div>","minHeight": "155", "maxHeight": "155", "fullscreenControl": false}
+            ]
+        }
+    ]
+
+}

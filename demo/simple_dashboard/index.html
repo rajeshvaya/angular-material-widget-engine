@@ -1,0 +1,52 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js"></script>
+
+  <!-- Angular Material -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!-- Widget engine libraries -->
+  <link rel="stylesheet" href="https://cdn.rawgit.com/rajeshvaya/angular-material-widget-engine/master/angular-material-widget-engine.css">
+  <script src="https://cdn.rawgit.com/rajeshvaya/angular-material-widget-engine/master/angular-material-widget-engine.js"></script>
+  
+
+  <style>
+    .app-container{ height: 100%; overflow-x:scroll; }
+  </style>
+</head>
+<body ng-app="MyApp" ng-cloak>
+  
+  <div ng-controller="sampleCtrl" class="app-container">
+    <md-widget-engine configuration='data.WEconfiguration' callback="data.WEcallback"></md-widget-engine>
+  </div>
+  
+  <script>
+  (function(){
+    angular
+      .module('MyApp', ['ngMaterial', 'ngMdWidgetEngine'])
+      .controller('sampleCtrl', sampleCtrl);
+
+      function sampleCtrl($scope, $http){
+          // prepare the widget data
+          $http.get("engine.json").success(function(data){
+              $scope.data = {};
+              $scope.data.WEconfiguration = data;
+              $scope.data.WEcallback = function(e, configuration){
+                  console.log(e, configuration);
+              };
+          });
+      }
+  })();
+  </script>
+  
+
+</body>
+</html>
