@@ -15,7 +15,8 @@ A widget engine to create beautiful and interactive dashboards, reports, widgets
 - Everything configured through single JSON ([sample](https://github.com/rajeshvaya/angular-material-widget-engine/raw/master/example/data/engine.json))
 - Callbacks for any change in the widget engine
 
-## [Demo](https://rajeshvaya.github.io/angular-material-widget-engine/demo/multiple_columns)
+## Demo ([Simple](https://rajeshvaya.github.io/angular-material-widget-engine/demo/multiple_columns), [Dashboard](https://rajeshvaya.github.io/angular-material-widget-engine/demo/simple_dashboard))
+
 ![Demo GIF](https://github.com/rajeshvaya/angular-material-widget-engine/raw/master/demo.gif)
 
 ## Dependencies
