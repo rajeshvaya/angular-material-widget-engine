@@ -23,7 +23,7 @@
         },
         {
             "name": "column3",
-            "size": 20,
+            "size": 30,
             "background": "#e9ebee",
             "widgets":[
                 {"name": "chart_1", "title": "SLA", "type": "iframe", "content": "widgets/sla_stats.html","minHeight": "250", "maxHeight": "250", "sticky": true, "stickyControl": true},
@@ -34,7 +34,7 @@
         },
         {
             "name": "column4",
-            "size": 30,
+            "size": 20,
             "background": "#e9ebee",
             "widgets":[
                 {"name": "chart_1", "title": "Agents Online", "type": "html", "content": "<div style='font-size: 100px; text-align: center;'><b>33</b></div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false},
