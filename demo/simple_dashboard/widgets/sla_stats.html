@@ -1,4 +1,3 @@
-<script>console.log("hiii");</script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <div>
   <center><div id="chart_div" style="height:100%"></div></center>
@@ -27,14 +26,6 @@
       data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
       chart.draw(data, options);
     }, 13000);
-    setInterval(function() {
-      data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
-      chart.draw(data, options);
-    }, 5000);
-    setInterval(function() {
-      data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
-      chart.draw(data, options);
-    }, 26000);
   }
 })();
 

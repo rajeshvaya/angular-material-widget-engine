@@ -27,9 +27,9 @@
             "background": "#e9ebee",
             "widgets":[
                 {"name": "chart_1", "title": "SLA", "type": "iframe", "content": "widgets/sla_stats.html","minHeight": "250", "maxHeight": "250", "sticky": true, "stickyControl": true},
-                {"name": "chart_1", "title": "Inbound Calls", "type": "html", "content": "<div style='font-size: 100px; text-align: center;'><b>550</b></div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false},
-                {"name": "chart_1", "title": "Abandoned", "type": "html", "content": "<div style='font-size: 100px; text-align: center;'><b>142</b></div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false},
-                {"name": "chart_1", "title": "Active Calls", "type": "html", "content": "<div style='font-size: 100px; text-align: center;'><b>16</b></div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false}
+                {"name": "chart_1", "title": "Inbound Calls", "type": "html", "content": "<div style='font-size: 100px; font-weight:200; text-align: center;'><span>550</span></div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false},
+                {"name": "chart_1", "title": "Abandoned", "type": "html", "content": "<div style='font-size: 100px; font-weight:200; text-align: center;'><span>142</span></div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false},
+                {"name": "chart_1", "title": "Active Calls", "type": "html", "content": "<div style='font-size: 100px; font-weight:200; text-align: center;'><span>16</bspan</div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false}
             ]
         },
         {
@@ -37,10 +37,10 @@
             "size": 20,
             "background": "#e9ebee",
             "widgets":[
-                {"name": "chart_1", "title": "Agents Online", "type": "html", "content": "<div style='font-size: 100px; text-align: center;'><b>33</b></div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false},
-                {"name": "chart_1", "title": "Wait Time", "type": "html", "content": "<div style='font-size: 80px; text-align: center;'><b>21</b></br><small style='font-size:20px;'>seconds</small></div>","minHeight": "155", "maxHeight": "155", "fullscreenControl": false},
-                {"name": "chart_1", "title": "Hold Time", "type": "html", "content": "<div style='font-size: 80px; text-align: center;'><b>43</b></br><small style='font-size:20px;'>seconds</small></div>","minHeight": "155", "maxHeight": "155", "fullscreenControl": false},
-                {"name": "chart_1", "title": "Talk Time", "type": "html", "content": "<div style='font-size: 80px; text-align: center;'><b>2</b></br><small style='font-size:20px;'>minutes</small></div>","minHeight": "155", "maxHeight": "155", "fullscreenControl": false}
+                {"name": "chart_1", "title": "Agents Online", "type": "html", "content": "<div style='font-size: 100px; font-weight:200; text-align: center;'><span>33</bspan</div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false},
+                {"name": "chart_1", "title": "Wait Time", "type": "html", "content": "<div style='font-size: 80px; font-weight:200; text-align: center;'><span>21</span></br><small style='font-size:20px;'>seconds</small></div>","minHeight": "155", "maxHeight": "155", "fullscreenControl": false},
+                {"name": "chart_1", "title": "Hold Time", "type": "html", "content": "<div style='font-size: 80px; font-weight:200; text-align: center;'><span>43</span></br><small style='font-size:20px;'>seconds</small></div>","minHeight": "155", "maxHeight": "155", "fullscreenControl": false},
+                {"name": "chart_1", "title": "Talk Time", "type": "html", "content": "<div style='font-size: 80px; font-weight:200; text-align: center;'><span>2</span></br><small style='font-size:20px;'>minutes</small></div>","minHeight": "155", "maxHeight": "155", "fullscreenControl": false}
             ]
         }
     ]
