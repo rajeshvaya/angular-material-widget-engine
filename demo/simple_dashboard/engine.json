@@ -6,9 +6,9 @@
             "size": 25,
             "background": "#e9ebee",
             "widgets":[
-                {"name": "chart_1", "title": "System Stats", "type": "iframe", "content": "widgets/system_stats.html","minHeight": "150", "maxHeight": "150"},
-                {"name": "chart_1", "title": "Geo Chart", "type": "iframe", "content": "widgets/geo_chart.html","minHeight": "310", "maxHeight": "310"},
-                {"name": "chart_1", "title": "Calls Summary", "type": "iframe", "content": "widgets/pie_chart.html","minHeight": "200", "maxHeight": "200"}
+                {"name": "chart_1", "title": "System Stats", "type": "iframe", "content": "widgets/system_stats.html","minHeight": "150", "maxHeight": "150", "sticky": true, "stickyControl": true},
+                {"name": "chart_1", "title": "Geo Chart", "type": "iframe", "content": "widgets/geo_chart.html","minHeight": "310", "maxHeight": "310", "stickyControl": true},
+                {"name": "chart_1", "title": "Calls Summary", "type": "iframe", "content": "widgets/pie_chart.html","minHeight": "200", "maxHeight": "200", "stickyControl": true}
             ]
         },
         {
@@ -26,7 +26,7 @@
             "size": 15,
             "background": "#e9ebee",
             "widgets":[
-                {"name": "chart_1", "title": "SLA", "type": "iframe", "content": "widgets/sla_stats.html","minHeight": "250", "maxHeight": "250"},
+                {"name": "chart_1", "title": "SLA", "type": "iframe", "content": "widgets/sla_stats.html","minHeight": "250", "maxHeight": "250", "sticky": true, "stickyControl": true},
                 {"name": "chart_1", "title": "Inbound Calls", "type": "html", "content": "<div style='font-size: 100px; text-align: center;'><b>550</b></div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false},
                 {"name": "chart_1", "title": "Abandoned", "type": "html", "content": "<div style='font-size: 100px; text-align: center;'><b>142</b></div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false},
                 {"name": "chart_1", "title": "Active Calls", "type": "html", "content": "<div style='font-size: 100px; text-align: center;'><b>16</b></div>","minHeight": "110", "maxHeight": "110", "fullscreenControl": false}
