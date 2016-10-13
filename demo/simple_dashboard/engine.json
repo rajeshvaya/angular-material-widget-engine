@@ -1,5 +1,7 @@
 {
     "name":"Dashboard",
+    "dynamicColumns": false,
+    "resizeableColumns": false,
     "columns": [
         {
             "name": "column1",
