@@ -56,18 +56,27 @@ function sampleCtrl($scope, $http){
 }
 ```
 
+## Engine Configuration
+Key | Value | Description
+--------- | ------- | ------- |
+dynamicColumns | boolean | Enable / disable the feature of allowing user to add more remove empty columns (default is true)
+resizeableColumns | boolean | Enable / disable the feature of allowing user to adjust the width of each column
+
 ## Widget Configuration
 
 Key | Value | Description
 --------- | ------- | ------- |
 name | widget-1 | Any descriptive name for the widget
 title | Report One | Title displayed in the toolbar for each widget
-type | `include` or `iframe` or `HTML` | The content of widget can be fetched through `ng-include` or any external content through iFrame or simple HTML content string through HTML
+type | `include` or `iframe` or `html` | The content of widget can be fetched through `ng-include` or any external content through iFrame or simple HTML content string through HTML
 resize | true | It allows the content to be resized vertically by the user
 minHeight | 300 | Minimum height of the widget during resizing
 maxHeight | 500 | Maximum height of the widget possible during resizing
 sticky | true | Set it to true if widget should not be replaced or moved by another widget
-sitckyControl | true | Set it to true to allow the lock icon to show up on tool bar so user can toggle the sticky feature
+sitckyControl | true | Set it to true to allow the lock icon to show up on tool bar so user can toggle the sticky feature (default is false)
+fullscreenControl | true | Show the button control for fullscreen toggle or not in the widget toolbar (default is true)
+closeControl | true | Show the button control for removing widget or not in the widget toolbar (default is true)
+
 
 ## Theming
 

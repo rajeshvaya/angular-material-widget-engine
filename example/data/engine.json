@@ -1,5 +1,7 @@
 {
     "name":"Dashboard",
+    "dynamicColumns": false,
+    "resizeableColumns": true,
     "columns": [
         {
             "name": "column1",
@@ -16,7 +18,9 @@
                     "minHeight": "auto", 
                     "maxHeight": "auto",
                     "sticky": true,
-                    "stickyControl": true
+                    "stickyControl": true,
+                    "fullscreenControl": true,
+                    "closeControl": true
                 },
                 {"name": "report_2", "title": "Report Two", "type": "include", "content": "/example/data/widgets/report_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"}
             ]

@@ -1,13 +1,13 @@
 <div class="md-widget-engine-column" style="height:100%; position:relative">
     
-    <span class="md-widget-engine-column-resizer" ng-mousedown="setupColumnResizing($event)" ng-show="configuration.columns.length-1 > columnIndex">
+    <span class="md-widget-engine-column-resizer" ng-mousedown="setupColumnResizing($event)" ng-show="configuration.columns.length-1 > columnIndex && configuration.resizeableColumns !== false">
     </span>
     <div class="md-widget-engine-new-column-handler" ng-show="configuration.columns.length-1 > columnIndex">
-        <div ng-click="addNewColumn()" ng-show="column.widgets.length > 0 && configuration.columns.length < 6" style="outline: none; border: 0px;">
+        <div ng-click="addNewColumn()" ng-show="column.widgets.length > 0 && configuration.columns.length < 6 && configuration.dynamicColumns !== false" style="outline: none; border: 0px;">
             <md-icon class="material-icons md-dark md-24" style="outline: none">add_circle</md-icon>
             <md-tooltip md-direction="right">Add new column here</md-tooltip>
         </div>
-        <div ng-click="removeEmptyColumn()" ng-show="column.widgets.length == 0" style="outline: none; border: 0px;">
+        <div ng-click="removeEmptyColumn()" ng-show="column.widgets.length == 0 && configuration.dynamicColumns !== false" style="outline: none; border: 0px;">
             <md-icon class="material-icons md-dark md-24">remove_circle</md-icon>
             <md-tooltip md-direction="left">Remove this column</md-tooltip>
         </div>
