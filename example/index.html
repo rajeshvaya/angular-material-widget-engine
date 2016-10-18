@@ -20,11 +20,19 @@
   <script src="/node_modules/angular-material/angular-material.min.js"></script>
   <script src="/node_modules/angular-material-icons/angular-material-icons.min.js"></script>
   
-  <div ng-controller="sampleCtrl" class="app-container">
-    <md-widget-engine configuration='data.WEconfiguration' callback="data.WEcallback"></md-widget-engine>
-  </div>
-  
-  
+  <section layout="row" flex style="height: 100%">
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+      <md-toolbar class="md-theme-indigo"><h1 class="md-toolbar-tools"></h1></md-toolbar>
+      <md-content layout-padding></md-content>
+    </md-sidenav>
+
+    <md-content flex layout-padding>
+      <div ng-controller="sampleCtrl" class="app-container">
+        <md-widget-engine configuration='data.WEconfiguration' callback="data.WEcallback" id="rajesh"></md-widget-engine>
+      </div>
+    </md-content>
+  </section>
+
   <!-- Widget engine libraries -->
   <script src="/angular-material-widget-engine.js"></script>
 
