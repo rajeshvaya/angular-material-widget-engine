@@ -150,7 +150,7 @@ function mdWidgetEngineDirective(){
         controller: function($scope, $element, $attrs, $transclude, $timeout){
             $timeout(function(){
                 ($scope.configuration || {}).width = ($element[0].children[0] || {}).offsetWidth;
-            });
+            }, 100);
         },
         link: function($scope, iElm, iAttrs, controller) {}
     };
