@@ -13,13 +13,22 @@ function mdWidgetEngineColumnDirective(){
         scope: false,
         templateUrl: "/src/components/widgetEngine/templates/widgetEngineColumn.html",
         controller: function($scope, $element, $attrs, $transclude, $document, $timeout){
+            $scope.widgetEngineWidth = 0;
+
             var mouseMove = function(e){
                 // console.log("mouse moving", e);
                 $timeout(function(){
                     var newX = e.clientX;
-                    var differenceXPercentage =  ((newX - $element[0].children[0].offsetLeft) / $scope.configuration.width) * 100;
+                    var differenceXPercentage =  ((newX - $element[0].children[0].offsetLeft) / $scope.widgetEngineWidth) * 100;
+                    // don't allow doing anything the affected column is 15% already now
+                    
+                    if($scope.configuration.columns[$scope.columnIndex + 1].size - (differenceXPercentage - $scope.column.size) <=15)
+                        return;
+                    if($scope.configuration.columns[$scope.columnIndex].size <= 15 && differenceXPercentage <= 15)
+                        return;
                     if($scope.configuration.columns[$scope.columnIndex + 1])
                         $scope.configuration.columns[$scope.columnIndex + 1].size -= differenceXPercentage - $scope.column.size;
+
                     $scope.column.size = differenceXPercentage;
                 });
                 
@@ -37,6 +46,8 @@ function mdWidgetEngineColumnDirective(){
                 // console.log("mouse down", e);
                 $document.on('mouseup', mouseUp);
                 $document.on('mousemove', mouseMove);
+                $scope.widgetEngineWidth = $element.parent().parent()[0].offsetWidth;
+                console.log($element.parent().parent()[0].offsetWidth);
             };
 
             $scope.addNewColumn = function(){
@@ -146,7 +157,7 @@ function mdWidgetEngineDirective(){
         templateUrl: "/src/components/widgetEngine/templates/widgetEngine.html",
         controller: function($scope, $element, $attrs, $transclude, $timeout){
             $timeout(function(){
-                ($scope.configuration || {}).width = ($element[0].children[0] || {}).offsetWidth;
+                $scope.configuration =  $scope.configuration || {};
             });
         },
         link: function($scope, iElm, iAttrs, controller) {}
