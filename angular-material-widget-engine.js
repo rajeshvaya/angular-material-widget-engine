@@ -218,7 +218,7 @@ function mdWidgetEngineWidgetTileDirectiveController(){
         };
 
         $scope.customActionCallback = function(cAction){
-            $scope.callback(cAction.callback, $scope.widget);
+            $scope.callback(cAction.event, $scope.widget);
         };
 
         $scope.openMenu = function($mdOpenMenu, ev) {

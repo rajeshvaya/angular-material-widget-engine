@@ -23,8 +23,8 @@
                     "closeControl": true,
                     "controlsLayout": "fab",
                     "customActions": [
-                        {"name": "android", "icon": "android", "callback": "show_me_android", "tooltip": "A custom action"},
-                        {"name": "explore", "icon": "explore", "callback": "locate_me", "tooltip": "Another custom action"}
+                        {"name": "android", "icon": "android", "event": "show_me_android", "tooltip": "A custom action"},
+                        {"name": "explore", "icon": "explore", "event": "locate_me", "tooltip": "Another custom action"}
                     ]
                 },
                 {
@@ -42,8 +42,8 @@
                     "closeControl": true,
                     "controlsLayout": "default",
                     "customActions": [
-                        {"name": "android", "icon": "android", "callback": "show_me_android", "tooltip": "A custom action"},
-                        {"name": "explore", "icon": "explore", "callback": "locate_me", "tooltip": "Another custom action"}
+                        {"name": "android", "icon": "android", "event": "show_me_android", "tooltip": "A custom action"},
+                        {"name": "explore", "icon": "explore", "event": "locate_me", "tooltip": "Another custom action"}
                     ]
                 },
                 {
@@ -61,8 +61,8 @@
                     "closeControl": true,
                     "controlsLayout": "menu",
                     "customActions": [
-                        {"name": "android", "icon": "android", "callback": "show_me_android", "tooltip": "A custom action"},
-                        {"name": "explore", "icon": "explore", "callback": "locate_me", "tooltip": "Another custom action"}
+                        {"name": "android", "icon": "android", "event": "show_me_android", "tooltip": "A custom action"},
+                        {"name": "explore", "icon": "explore", "event": "locate_me", "tooltip": "Another custom action"}
                     ]
                 }
 
