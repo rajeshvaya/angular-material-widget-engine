@@ -65,7 +65,7 @@ Key | Value | Description
 dynamicColumns | boolean | Enable / disable the feature of allowing user to add more remove empty columns (default is true)
 resizeableColumns | boolean | Enable / disable the feature of allowing user to adjust the width of each column
 
-## Column Configurations
+## Column Configuration
 Key | Value | Description
 --------- | ------- | ------- |
 name | column-1 | Any descriptive name for the column
