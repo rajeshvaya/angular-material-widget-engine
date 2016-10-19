@@ -16,14 +16,24 @@ function mdWidgetEngineColumnDirective(){
         scope: false,
         templateUrl: "/src/components/widgetEngine/templates/widgetEngineColumn.html",
         controller: function($scope, $element, $attrs, $transclude, $document, $timeout){
+            $scope.widgetEngineClientRect = {};
+
             var mouseMove = function(e){
                 // console.log("mouse moving", e);
+                var newX = e.clientX - $scope.widgetEngineClientRect.left + 16;
+                var differenceXPercentage =  ((newX - $element[0].children[0].offsetLeft) / $scope.widgetEngineClientRect.width) * 100;
+                // don't allow doing anything the affected column is 15% already now
+                
+                if($scope.configuration.columns[$scope.columnIndex + 1].size - (differenceXPercentage - $scope.column.size) <=15)
+                    return;
+                if($scope.configuration.columns[$scope.columnIndex].size <= 15 && differenceXPercentage <= 15)
+                    return;
+                if($scope.configuration.columns[$scope.columnIndex + 1])
+                    $scope.configuration.columns[$scope.columnIndex + 1].size -= differenceXPercentage - $scope.column.size;
+
+                $scope.column.size = differenceXPercentage;
                 $timeout(function(){
-                    var newX = e.clientX;
-                    var differenceXPercentage =  ((newX - $element[0].children[0].offsetLeft) / $scope.configuration.width) * 100;
-                    if($scope.configuration.columns[$scope.columnIndex + 1])
-                        $scope.configuration.columns[$scope.columnIndex + 1].size -= differenceXPercentage - $scope.column.size;
-                    $scope.column.size = differenceXPercentage;
+                    
                 });
                 
             };
@@ -40,6 +50,8 @@ function mdWidgetEngineColumnDirective(){
                 // console.log("mouse down", e);
                 $document.on('mouseup', mouseUp);
                 $document.on('mousemove', mouseMove);
+                $scope.widgetEngineClientRect = $element.parent().parent()[0].getBoundingClientRect();
+                
             };
 
             $scope.addNewColumn = function(){
@@ -52,12 +64,23 @@ function mdWidgetEngineColumnDirective(){
             };
 
             $scope.removeEmptyColumn = function(){
+                if($scope.configuration.columns[$scope.columnIndex + 1] && $scope.configuration.columns[$scope.columnIndex -1]){
+                    $scope.configuration.columns[$scope.columnIndex + 1].size += $scope.column.size / 2;
+                    $scope.configuration.columns[$scope.columnIndex - 1].size += $scope.column.size / 2;
+                }else if($scope.configuration.columns[$scope.columnIndex + 1]){
+                    $scope.configuration.columns[$scope.columnIndex + 1].size += $scope.column.size;
+                }else if($scope.configuration.columns[$scope.columnIndex - 1].size){
+                    $scope.configuration.columns[$scope.columnIndex - 1].size += $scope.column.size;
+                }
+
                 var removedColumn = $scope.configuration.columns.splice($scope.columnIndex, 1);
                 // check if the total width is less than 100% due to resizing of last column and deleting an empty column
                 var totalWidth = 0;
                 $scope.configuration.columns.forEach(function(c){
                     totalWidth+= c.size;
                 });
+
+                /*
                 if(totalWidth < 100){
                     // increase the width of columns after the deleted one, equally
                     var currentDeletedColumn = $scope.columnIndex;
@@ -68,6 +91,7 @@ function mdWidgetEngineColumnDirective(){
                         $scope.configuration.columns[i].size += distributeWidth;
                     }
                 }
+                */
             };
 
             $element.on('dragenter', function(event){
@@ -149,8 +173,8 @@ function mdWidgetEngineDirective(){
         templateUrl: "/src/components/widgetEngine/templates/widgetEngine.html",
         controller: function($scope, $element, $attrs, $transclude, $timeout){
             $timeout(function(){
-                ($scope.configuration || {}).width = ($element[0].children[0] || {}).offsetWidth;
-            }, 100);
+                $scope.configuration =  $scope.configuration || {};
+            });
         },
         link: function($scope, iElm, iAttrs, controller) {}
     };
