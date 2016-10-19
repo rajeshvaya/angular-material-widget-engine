@@ -37,10 +37,29 @@
                     "minHeight": "auto", 
                     "maxHeight": "auto",
                     "sticky": false,
-                    "stickyControl": false,
+                    "stickyControl": true,
                     "fullscreenControl": true,
                     "closeControl": true,
                     "controlsLayout": "default",
+                    "customActions": [
+                        {"name": "android", "icon": "android", "callback": "show_me_android", "tooltip": "A custom action"},
+                        {"name": "explore", "icon": "explore", "callback": "locate_me", "tooltip": "Another custom action"}
+                    ]
+                },
+                {
+                    "name": "report_3", 
+                    "title": "Report Three", 
+                    "type": "include", 
+                    "content": "/example/data/widgets/report_1.html", 
+                    "refresh": 10, 
+                    "resize": true, 
+                    "minHeight": "auto", 
+                    "maxHeight": "auto",
+                    "sticky": false,
+                    "stickyControl": true,
+                    "fullscreenControl": true,
+                    "closeControl": true,
+                    "controlsLayout": "menu",
                     "customActions": [
                         {"name": "android", "icon": "android", "callback": "show_me_android", "tooltip": "A custom action"},
                         {"name": "explore", "icon": "explore", "callback": "locate_me", "tooltip": "Another custom action"}
@@ -56,7 +75,6 @@
             "background": "#e9ebee",
             "widgets":[
                 {"name": "report_5", "title": "Video Five", "type": "iframe", "content": "https://www.youtube.com/embed/VPRjCeoBqrI", "resize": true, "minHeight": "300", "maxHeight": "auto"},
-                {"name": "report_3", "title": "Report Three", "type": "include", "content": "/example/data/widgets/report_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "200"},
                 {"name": "report_4", "title": "Report Four", "type": "include", "content": "/example/data/widgets/report_2.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
                 {"name": "report_5", "title": "Report Five", "type": "include", "content": "/example/data/widgets/report_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"}
             ]

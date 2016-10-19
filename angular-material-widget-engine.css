@@ -140,6 +140,12 @@ md-fab-speed-dial{
   right: 0;
 }
 
+.md-widget-engine-widget-title-menu-controls{
+  position: absolute;
+  right: -5px;
+  top: -10px;
+}
+
 .md-widget-engine-widget-title-fab-controls{
   position: absolute;
   right: 10px;

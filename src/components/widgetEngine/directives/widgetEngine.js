@@ -218,6 +218,11 @@ function mdWidgetEngineWidgetTileDirectiveController(){
             $scope.callback(cAction.callback, $scope.widget);
         };
 
+        $scope.openMenu = function($mdOpenMenu, ev) {
+            originatorEv = ev;
+            $mdOpenMenu(ev);
+        };
+
         // $element.attr("draggable", "true");
 
         $element.on('dragstart', function(event){

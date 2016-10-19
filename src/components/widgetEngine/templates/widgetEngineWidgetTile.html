@@ -97,6 +97,53 @@
                                 </md-fab-speed-dial>
                             </div><!-- fab-controls layout -->
 
+
+                            <div ng-switch-when="menu" class="md-widget-engine-widget-title-menu-controls">
+                                    <md-menu ng-show="widget.closeControl || widget.fullscreenControl || widget.stickyControl || widget.customActions.length ">
+                                      <md-button aria-label="Open menu" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+                                        <md-icon md-menu-origin>more_vert</md-icon>
+                                      </md-button>
+                                      <md-menu-content width="2">
+                                        <md-menu-item>
+                                          <md-button ng-mouseup="removeWidget($event)" ng-show="widget.closeControl !== false">
+                                            <md-icon class="material-icons md-light md-24" md-menu-align-target>close</md-icon>
+                                            Remove this widget
+                                          </md-button>
+                                        </md-menu-item>
+
+                                        <md-menu-item ng-show="widget.stickyControl">
+                                          <md-button ng-click="toggleSticky()" ng-if="!widget.sticky">
+                                            <md-icon class="material-icons md-light md-24" md-menu-align-target>lock_open</md-icon>
+                                            Make this widget sticky
+                                          </md-button>
+                                          <md-button ng-click="toggleSticky()" ng-if="widget.sticky">
+                                            <md-icon class="material-icons md-light md-24" md-menu-align-target>lock</md-icon>
+                                            Make this widget non-sticky
+                                          </md-button>
+                                        </md-menu-item>
+
+                                        <md-menu-item>
+                                          <md-button ng-click="toggleFullscreen()" ng-show="widget.fullscreenControl !== false">
+                                            <md-icon class="material-icons md-light md-24" md-menu-align-target>fullscreen</md-icon>
+                                            Toggle fullscreen
+                                          </md-button>
+                                        </md-menu-item>
+
+                                        <md-menu-divider ng-if="widget.customActions.length"></md-menu-divider>
+
+                                        <md-menu-item ng-repeat="cAction in widget.customActions">
+                                          <md-button ng-click="customActionCallback(cAction)">
+                                            <md-icon class="material-icons md-light md-24" md-menu-align-target>{{cAction.icon}}</md-icon>
+                                            {{cAction.tooltip}}
+                                          </md-button>
+                                        </md-menu-item>
+                                        
+                                      </md-menu-content>
+                                    </md-menu>
+                            </div><!-- menu layout -->
+
+
+
                         </div><!-- ng-switch-->
                     </div><!-- md-widget-engine-widget-tile-controls-container -->
                 </div><!-- md-toolbar-tools -->
