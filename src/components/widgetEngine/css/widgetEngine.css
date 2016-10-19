@@ -48,7 +48,7 @@
   bottom: 10px;
   right: -12px;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 97;
 }
 
 .md-widget-engine-widget-tiles-container{
@@ -151,6 +151,7 @@ md-fab-speed-dial{
   right: 10px;
 }
 
+
 .md-widget-engine-widget-title-fab-controls .md-fab-action-item button{
   margin-top: 5px;
 }
@@ -177,9 +178,10 @@ md-fab-speed-dial{
   left:0;
   padding: 0;
   margin: 0;
-  z-index: 999999;
+  z-index: 99;
   overflow: hidden;
 }
+
 
 .md-widget-engine-widget-fullscreen md-content{
   position:absolute;
