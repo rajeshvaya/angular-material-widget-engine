@@ -85,7 +85,7 @@
 }</pre></div>
 
 <h2>
-<a id="widget-configuration" class="anchor" href="#widget-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Engine Configuration</h2>
+<a id="engine-configuration" class="anchor" href="#engine-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Engine Configuration</h2>
 
 <table>
 <thead>
@@ -106,6 +106,42 @@
 <td>boolean</td>
 <td>Enable / disable the feature of allowing user to adjust the width of each column</td>
 </tr>
+</tbody>
+</table>
+
+<a id="column-configuration" class="anchor" href="#column-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Column Configuration</h2>
+
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>column-1</td>
+<td>Any descriptive name for the column</td>
+</tr>
+<tr>
+<td>background</td>
+<td>#FFFFFF</td>
+<td>Any hex color code as the background color of the column</td>
+</tr>
+<tr>
+<td>size</td>
+<td>50</td>
+<td>A numeric value less than 100 for the width of the column with respective to with widget engine width (min. is 15)</td>
+</tr>
+<tr>
+<td>widgets</td>
+<td><code>[...]</code></td>
+<td>List of widgets in the column (with the below Widget Configurations)</td>
+</tr>
+
+
 </tbody>
 </table>
 
@@ -172,6 +208,16 @@
 <td>closeControl</td>
 <td>true</td>
 <td>Show the button control for removing widget or not in the widget toolbar (default is true)</td>
+</tr>
+<tr>
+<td>controlsLayout</td>
+<td><code>default</code> or <code>menu</code> or <code>fab</code></td>
+<td>View the widget controls in different layouts in the toolbar</td>
+</tr>
+<tr>
+<td>customActions</td>
+<td><code>[{"name": "android", "icon": "android", "event": "show_me_android", "tooltip": "A custom action"}]</code></td>
+<td>Add any number of custom controls to the widget toolbar and widget engine will fire an event through the callback function specified in <code>WECallback</code></td>
 </tr>
 </tbody>
 </table>
