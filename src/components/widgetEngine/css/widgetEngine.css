@@ -48,7 +48,7 @@
   bottom: 10px;
   right: -12px;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 97;
 }
 
 .md-widget-engine-widget-tiles-container{
@@ -131,6 +131,31 @@
   outline: none
 }
 
+md-toolbar.md-widget-engine-title-control-type-fab{
+  height: 44px;
+}
+
+md-fab-speed-dial{
+  position: absolute;
+  right: 0;
+}
+
+.md-widget-engine-widget-title-menu-controls{
+  position: absolute;
+  right: -5px;
+  top: -10px;
+}
+
+.md-widget-engine-widget-title-fab-controls{
+  position: absolute;
+  right: 10px;
+}
+
+
+.md-widget-engine-widget-title-fab-controls .md-fab-action-item button{
+  margin-top: 5px;
+}
+
 .md-widget-engine-widget-tile-control:hover{
 
 }
@@ -153,9 +178,10 @@
   left:0;
   padding: 0;
   margin: 0;
-  z-index: 999999;
+  z-index: 99;
   overflow: hidden;
 }
+
 
 .md-widget-engine-widget-fullscreen md-content{
   position:absolute;

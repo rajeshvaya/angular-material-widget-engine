@@ -188,6 +188,7 @@ function mdWidgetEngineWidgetTileDirectiveController(){
         $scope.widget._internalSettings = {};
         $scope.widget._internalSettings.trustedURL = $sce.trustAsResourceUrl($scope.widget.content);
         $scope.widget._internalSettings.trustedHTML = $sce.trustAsHtml($scope.widget.content);
+        $scope.widget._internalSettings.isFabControlOpen = false;
         $scope.toggleFullscreen = function(){
             $scope.fullscreen = !$scope.fullscreen;
         };
@@ -211,6 +212,15 @@ function mdWidgetEngineWidgetTileDirectiveController(){
                     var removedWidget = $scope.configuration.columns[$scope.columnIndex].widgets.splice($scope.widgetIndex, 1);
                 }, 200);
             }, function(){});
+        };
+
+        $scope.customActionCallback = function(cAction){
+            $scope.callback(cAction.event, $scope.widget);
+        };
+
+        $scope.openMenu = function($mdOpenMenu, ev) {
+            originatorEv = ev;
+            $mdOpenMenu(ev);
         };
 
         // $element.attr("draggable", "true");
