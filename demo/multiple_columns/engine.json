@@ -6,9 +6,32 @@
             "size": 45,
             "background": "#e9ebee",
             "widgets":[
-                {"name": "report_1", "title": "Report One", "type": "include", "content": "widgets/include_2.html", "resize": true, "minHeight": "300", "maxHeight": "200"},
-                {"name": "report_2", "title": "HTML Six", "type": "html", "content": "<h2>Hello there HTML! </h2>", "resize": true, "minHeight": "auto", "maxHeight": "auto"},
-                {"name": "report_3", "title": "Report Three", "type": "include", "content": "widgets/include_1.html", "resize": true, "minHeight": "auto", "maxHeight": "200"}
+                {
+                    "name": "report_1", "title": "Report One", "type": "include", "content": "widgets/include_2.html", "resize": true, "minHeight": "300", "maxHeight": "200",
+                    "controlsLayout": "fab",
+                    "customActions": [
+                        {"name": "android", "icon": "android", "event": "show_me_android", "tooltip": "A custom action"},
+                        {"name": "explore", "icon": "explore", "event": "locate_me", "tooltip": "Another custom action"}
+                    ]
+                },
+                {
+                    "name": "report_2", "title": "HTML Six", "type": "html", "content": "<h2>Hello there HTML! </h2>", "resize": true, "minHeight": "auto", "maxHeight": "auto",
+                    "controlsLayout": "menu",
+                    "stickyControl": true,
+                    "customActions": [
+                        {"name": "android", "icon": "android", "event": "show_me_android", "tooltip": "A custom action"},
+                        {"name": "explore", "icon": "explore", "event": "locate_me", "tooltip": "Another custom action"}
+                    ]
+                },
+                {
+                    "name": "report_3", "title": "Report Three", "type": "include", "content": "widgets/include_1.html", "resize": true, "minHeight": "auto", "maxHeight": "200",
+                    "controlsLayout": "default",
+                    "stickyControl": true,
+                    "customActions": [
+                        {"name": "android", "icon": "android", "event": "show_me_android", "tooltip": "A custom action"},
+                        {"name": "explore", "icon": "explore", "event": "locate_me", "tooltip": "Another custom action"}
+                    ]
+                }
             ]
         },
         {

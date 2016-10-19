@@ -34,13 +34,24 @@
       .module('MyApp', ['ngMaterial', 'ngMdWidgetEngine'])
       .controller('sampleCtrl', sampleCtrl);
 
-      function sampleCtrl($scope, $http){
+      function sampleCtrl($scope, $http, $mdDialog){
           // prepare the widget data
           $http.get("engine.json").success(function(data){
               $scope.data = {};
               $scope.data.WEconfiguration = data;
               $scope.data.WEcallback = function(e, configuration){
                   console.log(e, configuration);
+                  // handling custom events
+                  if(e === 'locate_me' || e === 'show_me_android'){
+                    $mdDialog.show(
+                      $mdDialog.alert()
+                        .clickOutsideToClose(true)
+                        .title('Are you ready?')
+                        .textContent('Are you ready to explore the universe?')
+                        .ariaLabel('explore')
+                        .ok('Oh Yes!')
+                    );
+                  }
               };
           });
       }
