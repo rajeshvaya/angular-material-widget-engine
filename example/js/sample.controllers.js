@@ -12,7 +12,6 @@ function sampleCtrl($scope, $http){
         $scope.data.WEcallback = function(e, configuration){
             console.log(e, configuration);
         };
-        
     });
 
 

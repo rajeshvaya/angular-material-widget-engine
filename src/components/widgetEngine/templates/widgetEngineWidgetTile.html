@@ -2,42 +2,103 @@
     <div class="md-widget-engine-widget-tile md-whiteframe-2dp">
 
         <div class="md-widget-engine-widget-tile-title-container">
-            <md-toolbar class="md-whiteframe-2dp">
+            <md-toolbar class="md-whiteframe-2dp md-widget-engine-title-control-type-{{widget.controlsLayout || 'default'}}" style="z-index: {{(configuration.columns[columnIndex].widgets.length - widgetIndex) * 10}}">
                 <div class="md-toolbar-tools">
                     <div class="md-widget-engine-widget-tile-title">
                         <span style="cursor: pointer" md-widget-engine-widget-dragger>{{widget.title || 'Widget'}}</span>
                     </div>
                     <span flex></span>
-                    <div class="md-widget-engine-widget-tile-controls-container" >
-                        <div class="md-widget-engine-widget-tile-control" ng-mouseup="removeWidget($event)" ng-show="widget.closeControl !== false">
-                            <span class="md-widget-engine-widget-close-control">
-                                <md-icon class="material-icons md-light md-24">
-                                    close
-                                    <md-tooltip md-direction="bottom">Remove this widget</md-tooltip>
-                                </md-icon>
-                            </span>
-                        </div>
-                        <div class="md-widget-engine-widget-tile-control" ng-click="toggleSticky()" ng-show="widget.stickyControl">
-                            <span class="md-widget-engine-widget-sticky-control">
-                                <md-icon class="material-icons md-light md-24" ng-if="!widget.sticky">
-                                    lock_open
-                                    <md-tooltip md-direction="bottom">Make this widget sticky</md-tooltip>
-                                </md-icon>
-                                <md-icon class="material-icons md-light md-24" ng-if="widget.sticky">
-                                    lock
-                                    <md-tooltip md-direction="bottom">Make this widget non-sticky</md-tooltip>
-                                </md-icon>
-                            </span>
-                        </div>
-                        <div class="md-widget-engine-widget-tile-control" ng-click="toggleFullscreen()" ng-show="widget.fullscreenControl !== false">
-                            <span class="md-widget-engine-widget-fullscreen-control">
-                                <md-icon class="material-icons md-light md-24">
-                                    fullscreen
-                                    <md-tooltip md-direction="bottom">Toggle fullscreen mode</md-tooltip>
-                                </md-icon>
-                            </span>
-                        </div>
-                    </div>
+                    <div class="md-widget-engine-widget-tile-controls-container" style="position:relative">
+                        <div ng-switch on="widget.controlsLayout">
+
+                            <div ng-switch-default class="md-widget-engine-widget-title-default-controls">
+                                <div class="md-widget-engine-widget-tile-control" ng-mouseup="removeWidget($event)" ng-show="widget.closeControl !== false">
+                                    <span class="md-widget-engine-widget-close-control">
+                                        <md-icon class="material-icons md-light md-24">
+                                            close
+                                            <md-tooltip md-direction="bottom">Remove this widget</md-tooltip>
+                                        </md-icon>
+                                    </span>
+                                </div>
+                                <div class="md-widget-engine-widget-tile-control" ng-click="toggleSticky()" ng-show="widget.stickyControl">
+                                    <span class="md-widget-engine-widget-sticky-control">
+                                        <md-icon class="material-icons md-light md-24" ng-if="!widget.sticky">
+                                            lock_open
+                                            <md-tooltip md-direction="bottom">Make this widget sticky</md-tooltip>
+                                        </md-icon>
+                                        <md-icon class="material-icons md-light md-24" ng-if="widget.sticky">
+                                            lock
+                                            <md-tooltip md-direction="bottom">Make this widget non-sticky</md-tooltip>
+                                        </md-icon>
+                                    </span>
+                                </div>
+                                <div class="md-widget-engine-widget-tile-control" ng-click="toggleFullscreen()" ng-show="widget.fullscreenControl !== false">
+                                    <span class="md-widget-engine-widget-fullscreen-control">
+                                        <md-icon class="material-icons md-light md-24">
+                                            fullscreen
+                                            <md-tooltip md-direction="bottom">Toggle fullscreen mode</md-tooltip>
+                                        </md-icon>
+                                    </span>
+                                </div>
+
+                                <div class="md-widget-engine-widget-tile-control" ng-repeat="cAction in widget.customActions" class="md-fab md-mini md-raised" ng-click="customActionCallback(cAction)">
+                                    <span class="md-widget-engine-widget-custom-control">
+                                        <md-icon class="material-icons md-light md-24">
+                                            {{cAction.icon}}
+                                            <md-tooltip md-direction="bottom">{{cAction.tooltip}}</md-tooltip>
+                                        </md-icon>
+                                    </span>
+                                </div>
+                            </div><!-- default layout -->
+
+
+                            <div ng-switch-when="fab" class="md-widget-engine-widget-title-fab-controls">
+                                <md-fab-speed-dial md-direction="down" class="md-scale" ng-show="widget.closeControl || widget.fullscreenControl || widget.stickyControl || widget.customActions.length ">
+                                    <md-fab-trigger>
+                                        <md-button aria-label="menu" class="md-fab md-mini md-raised md-button">
+                                            <md-icon class="material-icons md-light md-24">more_vert</md-icon>
+                                        </md-button>
+                                    </md-fab-trigger>
+
+                                    <md-fab-actions>
+                                        <md-button class="md-fab md-mini md-raised" ng-mouseup="removeWidget($event)" ng-show="widget.closeControl !== false">
+                                            <md-icon class="material-icons md-light md-24">
+                                                close
+                                                <md-tooltip md-direction="bottom">Remove this widget</md-tooltip>
+                                            </md-icon>
+                                        </md-button>
+
+                                        <md-button class="md-fab md-mini md-raised" ng-click="toggleSticky()" ng-show="widget.stickyControl">
+                                            <md-icon class="material-icons md-light md-24" ng-if="!widget.sticky">
+                                                lock_open
+                                                <md-tooltip md-direction="bottom">Make this widget sticky</md-tooltip>
+                                            </md-icon>
+                                            <md-icon class="material-icons md-light md-24" ng-if="widget.sticky">
+                                              lock
+                                              <md-tooltip md-direction="bottom">Make this widget non-sticky</md-tooltip>
+                                            </md-icon>
+                                        </md-button>
+
+                                        <md-button class="md-fab md-mini md-raised" ng-click="toggleFullscreen()" ng-show="widget.fullscreenControl !== false">
+                                            <md-icon class="material-icons md-light md-24">
+                                                fullscreen
+                                                <md-tooltip md-direction="bottom">Toggle fullscreen mode</md-tooltip>
+                                            </md-icon>
+                                        </md-button>
+
+                                        <md-button ng-repeat="cAction in widget.customActions" class="md-fab md-mini md-raised " ng-click="customActionCallback(cAction)">
+                                            <md-icon class="material-icons md-light md-24">
+                                                {{cAction.icon}}
+                                                <md-tooltip md-direction="bottom">{{cAction.tooltip}}</md-tooltip>
+                                            </md-icon>
+                                        </md-button>
+
+                                    </md-fab-actions>
+                                </md-fab-speed-dial>
+                            </div><!-- fab-controls layout -->
+
+                        </div><!-- ng-switch-->
+                    </div><!-- md-widget-engine-widget-tile-controls-container -->
                 </div><!-- md-toolbar-tools -->
             </md-toolbar>
         </div>

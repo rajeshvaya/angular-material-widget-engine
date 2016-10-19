@@ -131,6 +131,24 @@
   outline: none
 }
 
+md-toolbar.md-widget-engine-title-control-type-fab{
+  height: 44px;
+}
+
+md-fab-speed-dial{
+  position: absolute;
+  right: 0;
+}
+
+.md-widget-engine-widget-title-fab-controls{
+  position: absolute;
+  right: 10px;
+}
+
+.md-widget-engine-widget-title-fab-controls .md-fab-action-item button{
+  margin-top: 5px;
+}
+
 .md-widget-engine-widget-tile-control:hover{
 
 }
