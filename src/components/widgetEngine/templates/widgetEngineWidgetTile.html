@@ -163,7 +163,9 @@
                         </div><!-- ng-switch-when -->
 
                         <div ng-switch-when="html">
-                            <div ng-bind-html="widget._internalSettings.trustedHTML"></div>
+                            <md-widget-engine-widget-tile-content-html>
+                                {{widget._internalSettings.trustedHTML}}
+                            </md-widget-engine-widget-tile-content-html>
                         </div><!-- ng-switch-when -->
 
                     </div> <!-- ng-switch -->

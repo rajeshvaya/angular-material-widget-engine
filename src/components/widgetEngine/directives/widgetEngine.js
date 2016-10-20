@@ -2,6 +2,7 @@
 angular
     .module('ngMdWidgetEngine')
     .directive('mdWidgetEngineWidgetDragger', mdWidgetEngineWidgetTileDragger)
+    .directive('mdWidgetEngineWidgetTileContentHtml', mdWidgetEngineWidgetTileContentHtml)
     .directive('mdWidgetEngineWidgetTile', mdWidgetEngineWidgetTileDirective)
     .directive('mdWidgetEngineColumn', mdWidgetEngineColumnDirective)
     .directive('mdWidgetEngine', mdWidgetEngineDirective);
@@ -155,6 +156,18 @@ function mdWidgetEngineWidgetTileDragger(){
             event = event.originalEvent || event;
             event._initiatedByDragger = true; // this is to inform the parent widget that dragging is started by dragging the child element i.e. the dragger
         });
+    };
+}
+
+// To pass custom directives dyamically it needs to be compiled first
+function mdWidgetEngineWidgetTileContentHtml(){
+    return {
+        transclude: true,
+        controller: function($scope, $element, $attrs, $transclude, $timeout, $compile){
+            var el = $compile($scope.widget.content)($scope);
+            $element.parent().append(el);
+        },
+        link: function($scope, iElm, iAttrs, controller) {}
     };
 }
 

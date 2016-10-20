@@ -75,7 +75,7 @@
             "background": "#e9ebee",
             "widgets":[
                 {"name": "report_5", "title": "Video Five", "type": "iframe", "content": "https://www.youtube.com/embed/VPRjCeoBqrI", "resize": true, "minHeight": "300", "maxHeight": "auto"},
-                {"name": "report_4", "title": "Report Four", "type": "include", "content": "/example/data/widgets/report_2.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
+                {"custom":"10/3/2016", "name": "report_4", "title": "Report Four", "type": "html", "content": "<md-datepicker ng-model='widget.custom' md-placeholder='Enter date'></md-datepicker>", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
                 {"name": "report_5", "title": "Report Five", "type": "include", "content": "/example/data/widgets/report_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"}
             ]
         },
