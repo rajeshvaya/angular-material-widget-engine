@@ -223,6 +223,8 @@ function mdWidgetEngineWidgetTileDirectiveController(){
                 $element.addClass('md-widget-engine-widget-remove');
                 $timeout(function(){
                     var removedWidget = $scope.configuration.columns[$scope.columnIndex].widgets.splice($scope.widgetIndex, 1);
+                    $scope.callback("removeWidget", removedWidget[0]);
+                    $scope.callback("update", $scope.configuration);
                 }, 200);
             }, function(){});
         };

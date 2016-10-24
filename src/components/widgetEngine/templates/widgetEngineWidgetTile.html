@@ -53,7 +53,7 @@
 
 
                             <div ng-switch-when="fab" class="md-widget-engine-widget-title-fab-controls">
-                                <md-fab-speed-dial md-direction="down" class="md-scale" ng-show="widget.closeControl || widget.fullscreenControl || widget.stickyControl || widget.customActions.length ">
+                                <md-fab-speed-dial md-direction="down" class="md-scale" ng-show="widget.closeControl !== false || widget.fullscreenControl !== false || widget.stickyControl !== false || widget.customActions.length ">
                                     <md-fab-trigger>
                                         <md-button aria-label="menu" class="md-fab md-mini md-raised md-button">
                                             <md-icon class="material-icons md-light md-24">more_vert</md-icon>
@@ -99,7 +99,7 @@
 
 
                             <div ng-switch-when="menu" class="md-widget-engine-widget-title-menu-controls">
-                                    <md-menu ng-show="widget.closeControl || widget.fullscreenControl || widget.stickyControl || widget.customActions.length ">
+                                    <md-menu ng-show="widget.closeControl !== false || widget.fullscreenControl !== false || widget.stickyControl !== false || widget.customActions.length ">
                                       <md-button aria-label="Open menu" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
                                         <md-icon md-menu-origin>more_vert</md-icon>
                                       </md-button>

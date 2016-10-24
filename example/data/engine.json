@@ -18,14 +18,9 @@
                     "minHeight": "auto", 
                     "maxHeight": "auto",
                     "sticky": true,
-                    "stickyControl": true,
-                    "fullscreenControl": true,
-                    "closeControl": true,
-                    "controlsLayout": "fab",
-                    "customActions": [
-                        {"name": "android", "icon": "android", "event": "show_me_android", "tooltip": "A custom action"},
-                        {"name": "explore", "icon": "explore", "event": "locate_me", "tooltip": "Another custom action"}
-                    ]
+                    
+                    "controlsLayout": "fab"
+                    
                 },
                 {
                     "name": "report_2", 
