@@ -152,7 +152,7 @@
 
         <div class="md-widget-engine-widget-tile-content-container">
             <md-content>
-                <div class="md-widget-engine-widget-tile-content resize-vertical" style="min-height:{{widget.minHeight}}px; height:{{widget.minHeight}}px; max-height:{{widget.maxHeight}}px; position:relative;">
+                <div class="md-widget-engine-widget-tile-content resize-vertical" style="min-height:{{fullscreen ? '100%' : widget.minHeight + 'px'}}; height:{{fullscreen ? '100%' : widget.minHeight + 'px'}}; max-height:{{fullscreen ? '100%' : widget.maxHeight + 'px'}}; position:relative;">
                     <div ng-switch on="widget.type" style="height: inherit">
                         <div ng-switch-when="include" style="height: inherit">
                             <ng-include src="widget.content"></ng-include>
