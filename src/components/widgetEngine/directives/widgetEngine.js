@@ -204,6 +204,7 @@ function mdWidgetEngineWidgetTileDirectiveController(){
         $scope.widget._internalSettings.isFabControlOpen = false;
         $scope.toggleFullscreen = function(){
             $scope.fullscreen = !$scope.fullscreen;
+            $scope.callback("toggleFullscreen", $scope.widget);
         };
 
         $scope.toggleSticky = function(){
