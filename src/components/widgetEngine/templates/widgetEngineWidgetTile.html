@@ -4,10 +4,10 @@
         <div class="md-widget-engine-widget-tile-title-container">
             <md-toolbar class="md-whiteframe-2dp md-widget-engine-title-control-type-{{widget.controlsLayout || 'default'}}" style="z-index: {{(configuration.columns[columnIndex].widgets.length - widgetIndex) * 10}}">
                 <div class="md-toolbar-tools" style="cursor: pointer" md-widget-engine-widget-dragger>
-                    <div class="md-widget-engine-widget-tile-title">
-                        <span>{{widget.title || 'Widget'}}</span>
+                    <div class="md-widget-engine-widget-tile-title" flex>
+                        <div style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 80%">{{widget.title || 'Widget'}}</div>
                     </div>
-                    <span style="cursor: pointer;" flex></span>
+                    <span ></span>
                     <div class="md-widget-engine-widget-tile-controls-container" style="position:relative">
                         <div ng-switch on="widget.controlsLayout">
 

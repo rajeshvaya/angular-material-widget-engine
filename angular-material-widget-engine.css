@@ -123,6 +123,8 @@
 
 .md-widget-engine-widget-tile-title{
   padding: 10px;
+  width: 90%;
+  overflow: hidden;
 }
 
 .md-widget-engine-widget-tile-controls-container{

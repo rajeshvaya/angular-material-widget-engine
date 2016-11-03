@@ -10,7 +10,7 @@
             "widgets":[
                 {
                     "name": "report_1", 
-                    "title": "Report Oness", 
+                    "title": "Report One Report One Report One Report One Report One Report One Report One Report One Report One Report One Report One Report One Report One Report One Report One Report One Report One Report One ", 
                     "type": "include", 
                     "content": "/example/data/widgets/report_1.html", 
                     "refresh": 10, 
