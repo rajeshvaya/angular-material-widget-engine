@@ -10,11 +10,11 @@
             "widgets":[
                 {
                     "name": "report_1", 
-                    "title": "Report One", 
+                    "title": "Report Oness", 
                     "type": "include", 
                     "content": "/example/data/widgets/report_1.html", 
                     "refresh": 10, 
-                    "resize": true, 
+                    "resize": false, 
                     "minHeight": "auto", 
                     "maxHeight": "auto",
                     "sticky": true,
