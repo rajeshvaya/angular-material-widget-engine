@@ -56,6 +56,10 @@
   z-index: 97;
 }
 
+.md-widget-engine-column .md-widget-engine-new-column-handler.single-column-only{
+  right: 0;
+}
+
 .md-widget-engine-widget-tiles-container{
   padding-top:8px;
 }
