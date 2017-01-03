@@ -68,7 +68,7 @@
                                             </md-icon>
                                         </md-button>
 
-                                        <md-button class="md-fab md-mini md-raised" ng-click="toggleSticky()" ng-show="widget.stickyControl">
+                                        <md-button class="md-fab md-mini md-raised" ng-click="toggleSticky()" ng-show="widget.stickyControl" aria-label="toggle sticky">
                                             <md-icon class="material-icons md-light md-24" ng-if="!widget.sticky">
                                                 lock_open
                                                 <md-tooltip md-direction="bottom">Make this widget sticky</md-tooltip>
@@ -79,14 +79,14 @@
                                             </md-icon>
                                         </md-button>
 
-                                        <md-button class="md-fab md-mini md-raised" ng-click="toggleFullscreen()" ng-show="widget.fullscreenControl !== false">
+                                        <md-button class="md-fab md-mini md-raised" ng-click="toggleFullscreen()" ng-show="widget.fullscreenControl !== false" aria-label="toggle fullscreen">
                                             <md-icon class="material-icons md-light md-24">
                                                 fullscreen
                                                 <md-tooltip md-direction="bottom">Toggle fullscreen mode</md-tooltip>
                                             </md-icon>
                                         </md-button>
 
-                                        <md-button ng-repeat="cAction in widget.customActions" class="md-fab md-mini md-raised " ng-click="customActionCallback(cAction)">
+                                        <md-button ng-repeat="cAction in widget.customActions" class="md-fab md-mini md-raised " ng-click="customActionCallback(cAction)" aria-label="custom action">
                                             <md-icon class="material-icons md-light md-24">
                                                 {{cAction.icon}}
                                                 <md-tooltip md-direction="bottom">{{cAction.tooltip}}</md-tooltip>
@@ -100,30 +100,30 @@
 
                             <div ng-switch-when="menu" class="md-widget-engine-widget-title-menu-controls">
                                     <md-menu ng-show="widget.closeControl !== false || widget.fullscreenControl !== false || widget.stickyControl !== false || widget.customActions.length ">
-                                      <md-button aria-label="Open menu" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+                                      <md-button aria-label="Open menu" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)" aria-label="open menu">
                                         <md-icon md-menu-origin>more_vert</md-icon>
                                       </md-button>
                                       <md-menu-content width="2">
                                         <md-menu-item>
-                                          <md-button ng-mouseup="removeWidget($event)" ng-show="widget.closeControl !== false">
+                                          <md-button ng-mouseup="removeWidget($event)" ng-show="widget.closeControl !== false" aria-label="remove widget">
                                             <md-icon class="material-icons md-light md-24" md-menu-align-target>close</md-icon>
                                             Remove this widget
                                           </md-button>
                                         </md-menu-item>
 
                                         <md-menu-item ng-show="widget.stickyControl">
-                                          <md-button ng-click="toggleSticky()" ng-if="!widget.sticky">
+                                          <md-button ng-click="toggleSticky()" ng-if="!widget.sticky" aria-label="toggle sticky">
                                             <md-icon class="material-icons md-light md-24" md-menu-align-target>lock_open</md-icon>
                                             Make this widget sticky
                                           </md-button>
-                                          <md-button ng-click="toggleSticky()" ng-if="widget.sticky">
+                                          <md-button ng-click="toggleSticky()" ng-if="widget.sticky" aria-label="toggle sticky">
                                             <md-icon class="material-icons md-light md-24" md-menu-align-target>lock</md-icon>
                                             Make this widget non-sticky
                                           </md-button>
                                         </md-menu-item>
 
                                         <md-menu-item>
-                                          <md-button ng-click="toggleFullscreen()" ng-show="widget.fullscreenControl !== false">
+                                          <md-button ng-click="toggleFullscreen()" ng-show="widget.fullscreenControl !== false" aria-label="toggle fullscreen">
                                             <md-icon class="material-icons md-light md-24" md-menu-align-target>fullscreen</md-icon>
                                             Toggle fullscreen
                                           </md-button>
@@ -132,12 +132,12 @@
                                         <md-menu-divider ng-if="widget.customActions.length"></md-menu-divider>
 
                                         <md-menu-item ng-repeat="cAction in widget.customActions">
-                                          <md-button ng-click="customActionCallback(cAction)">
+                                          <md-button ng-click="customActionCallback(cAction)" aria-label="custom action">
                                             <md-icon class="material-icons md-light md-24" md-menu-align-target>{{cAction.icon}}</md-icon>
                                             {{cAction.tooltip}}
                                           </md-button>
                                         </md-menu-item>
-                                        
+
                                       </md-menu-content>
                                     </md-menu>
                             </div><!-- menu layout -->
@@ -170,7 +170,7 @@
 
                     </div> <!-- ng-switch -->
                 </div>
-            </md-content>    
+            </md-content>
         </div>
 
     </div><!-- md-widget-engine-widget-tile -->
