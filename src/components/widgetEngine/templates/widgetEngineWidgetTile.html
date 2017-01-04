@@ -1,7 +1,7 @@
-<div class="md-widget-engine-widget-tile-container {{fullscreen ? 'md-widget-engine-widget-fullscreen' : ''}}">
+<div class="md-widget-engine-widget-tile-container {{fullscreen ? 'md-widget-engine-widget-fullscreen' : ''}} md-widget-engine-widget-{{widget.name}}">
     <div class="md-widget-engine-widget-tile md-whiteframe-2dp">
 
-        <div class="md-widget-engine-widget-tile-title-container">
+        <div class="md-widget-engine-widget-tile-title-container md-widget-engine-widget-{{widget.name}}">
             <md-toolbar class="md-whiteframe-2dp md-widget-engine-title-control-type-{{widget.controlsLayout || 'default'}}" style="z-index: {{(configuration.columns[columnIndex].widgets.length - widgetIndex) * 10}}">
                 <div class="md-toolbar-tools" style="cursor: pointer" md-widget-engine-widget-dragger>
                     <div class="md-widget-engine-widget-tile-title" flex>
@@ -150,7 +150,7 @@
             </md-toolbar>
         </div>
 
-        <div class="md-widget-engine-widget-tile-content-container">
+        <div class="md-widget-engine-widget-tile-content-container md-widget-engine-widget-{{widget.name}}">
             <md-content>
                 <div class="md-widget-engine-widget-tile-content {{widget.resize ? 'resize-vertical' : ''}}" style="min-height:{{fullscreen ? '100%' : widget.minHeight + 'px'}}; height:{{fullscreen ? '100%' : widget.minHeight + 'px'}}; max-height:{{fullscreen ? '100%' : widget.maxHeight + 'px'}}; position:relative;">
                     <div ng-switch on="widget.type" style="height: inherit">
