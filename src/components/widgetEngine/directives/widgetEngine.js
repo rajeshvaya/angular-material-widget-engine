@@ -334,11 +334,12 @@ function mdWidgetEngineWidgetTileDirectiveController(){
             _obj._draggedTile.removeClass("md-widget-engine-widget-dashed");
             $element.removeClass("md-widget-engine-widget-dashed");
 
-            setTimeout(function(){
+            $timeout(function(){
                 $scope.$apply();
                 $scope.callback("update", $scope.configuration);
             }, 150);
             // if source and destination are same, well then move on :P
+            event.preventDefault();
         });
 
     };
