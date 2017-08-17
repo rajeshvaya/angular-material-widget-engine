@@ -1,48 +1,117 @@
 {
-    "name":"Dashboard",
+    "name": "Dashboard",
     "columns": [
         {
-            "name": "column1",
             "background": "#e9ebee",
+            "name": "column1",
             "size": 55,
-            "widgets":[
+            "widgets": [
                 {
-                    "name": "report_1", 
-                    "title": "Report One", 
-                    "type": "include", 
-                    "content": "/example/data/widgets/report_1.html", 
-                    "refresh": 10, 
-                    "resize": true, 
-                    "minHeight": "auto", 
+                    "content": "example/data/widgets/report_1.html",
                     "maxHeight": "auto",
+                    "minHeight": "auto",
+                    "name": "report_1",
+                    "refresh": 10,
+                    "resize": true,
                     "sticky": true,
-                    "stickyControl": true
+                    "stickyControl": true,
+                    "title": "Report One",
+                    "type": "include"
                 },
-                {"name": "report_2", "title": "Report Two", "type": "include", "content": "/example/data/widgets/report_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"}
+                {
+                    "content": "example/data/widgets/report_1.html",
+                    "maxHeight": "auto",
+                    "minHeight": "auto",
+                    "name": "report_2",
+                    "refresh": 10,
+                    "resize": true,
+                    "title": "Report Two",
+                    "type": "include"
+                }
             ]
         },
-
         {
+            "background": "#e9ebee",
             "name": "column2",
             "size": 25,
-            "background": "#e9ebee",
-            "widgets":[
-                {"name": "report_3", "title": "Report Three", "type": "include", "content": "/example/data/widgets/report_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "200"},
-                {"name": "report_4", "title": "Report Four", "type": "include", "content": "/example/data/widgets/report_2.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
-                {"name": "report_5", "title": "Report Five", "type": "include", "content": "/example/data/widgets/report_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"}
+            "widgets": [
+                {
+                    "content": "example/data/widgets/report_1.html",
+                    "maxHeight": "200",
+                    "minHeight": "auto",
+                    "name": "report_3",
+                    "refresh": 10,
+                    "resize": true,
+                    "title": "Report Three",
+                    "type": "include"
+                },
+                {
+                    "content": "example/data/widgets/report_2.html",
+                    "maxHeight": "auto",
+                    "minHeight": "auto",
+                    "name": "report_4",
+                    "refresh": 10,
+                    "resize": true,
+                    "title": "Report Four",
+                    "type": "include"
+                },
+                {
+                    "content": "example/data/widgets/report_1.html",
+                    "maxHeight": "auto",
+                    "minHeight": "auto",
+                    "name": "report_5",
+                    "refresh": 10,
+                    "resize": true,
+                    "title": "Report Five",
+                    "type": "include"
+                }
             ]
         },
-
-
         {
+            "background": "#e9ebee",
             "name": "column2",
             "size": 20,
-            "background": "#e9ebee",
-            "widgets":[
-                {"name": "report_3", "title": "Report Six", "type": "include", "content": "/example/data/widgets/report_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
-                {"name": "report_4", "title": "Report Seven", "type": "include", "content": "/example/data/widgets/report_2.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
-                {"name": "report_5", "title": "Report Eight", "type": "include", "content": "/example/data/widgets/report_1.html", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"},
-                {"name": "report_9", "title": "Report Nine", "type": "html", "content": "<h2>Hello there HTML!</h2>", "refresh": 10, "resize": true, "minHeight": "auto", "maxHeight": "auto"}
+            "widgets": [
+                {
+                    "content": "example/data/widgets/report_1.html",
+                    "maxHeight": "auto",
+                    "minHeight": "auto",
+                    "name": "report_3",
+                    "refresh": 10,
+                    "resize": true,
+                    "title": "Report Six",
+                    "type": "include"
+                },
+                {
+                    "content": "example/data/widgets/report_2.html",
+                    "maxHeight": "auto",
+                    "minHeight": "auto",
+                    "name": "report_4",
+                    "refresh": 10,
+                    "resize": true,
+                    "title": "Report Seven",
+                    "type": "include"
+                },
+                {
+                    "content": "example/data/widgets/report_1.html",
+                    "maxHeight": "auto",
+                    "minHeight": "auto",
+                    "name": "report_5",
+                    "refresh": 10,
+                    "resize": true,
+                    "title": "Report Eight",
+                    "type": "include"
+                },
+                {
+                    "content": "<h2>Hello there HTML!</h2>",
+                    "maxHeight": "auto",
+                    "minHeight": "auto",
+                    "name": "report_9",
+                    "refresh": 10,
+                    "resize": true,
+                    "title": "Report Nine",
+                    "type": "html"
+                }
             ]
         }
     ]

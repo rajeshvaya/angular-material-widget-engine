@@ -125,7 +125,8 @@ function mdWidgetEngineColumnDirective(){
             $element.on('drop', function(event){
                 if(!$scope.isAnyWidgetMoving()) return false;
                 // get the positions of swappers
-                var draggerPosition = (event.dataTransfer.getData("Text") || event.dataTransfer.getData("text/plain")).split("::");
+                var transfer = event.dataTransfer || event.originalEvent.dataTransfer;
+                var draggerPosition = (transfer.getData("Text") || transfer.getData("text/plain")).split("::");
                 if($scope.columnIndex == draggerPosition[0]){
                     $element.removeClass("md-widget-engine-column-dashed");
                     return;  // if dropping in the same column  
@@ -259,8 +260,10 @@ function mdWidgetEngineWidgetTileDirectiveController(){
         $element.on('dragstart', function(event){
             // only drag when initiated by child
             event.stopPropagation();
-            if(!event._initiatedByDragger || $scope.fullscreen){
-                if(!(event.dataTransfer.types && event.dataTransfer.types.length)){
+            var dragger = event._initiatedByDragger || event.originalEvent._initiatedByDragger;
+            var transfer = event.dataTransfer || event.originalEvent.dataTransfer;
+            if(!dragger || $scope.fullscreen){
+                if(!(transfer.types && transfer.types.length)){
                     event.preventDefault();
                 }
                 event.stopPropagation();
@@ -269,10 +272,10 @@ function mdWidgetEngineWidgetTileDirectiveController(){
             // $scope.fullscreen = false; //incase, you know
             $element.addClass("md-widget-engine-widget-moving");
             var draggerPosition = $scope.columnIndex + "::" + $scope.widgetIndex;
-            event.dataTransfer.setData("Text", draggerPosition);
-            event.dataTransfer.effectAllowed = "move";
-            event.dataTransfer.dropEffect = "move";
-            event.dataTransfer.setDragImage($element[0], 20, 20);
+            transfer.setData("Text", draggerPosition);
+            transfer.effectAllowed = "move";
+            transfer.dropEffect = "move";
+            transfer.setDragImage($element[0], 20, 20);
             _obj._draggedTile = $element;
             $scope.widget._internalSettings.isMoving = true;
             // console.log($scope.columnIndex, $scope.widgetIndex);
@@ -317,7 +320,8 @@ function mdWidgetEngineWidgetTileDirectiveController(){
             if(!$scope.isAnyWidgetMoving()) return false;
 
             // get the positions of swappers
-            var draggerPosition = (event.dataTransfer.getData("Text") || event.dataTransfer.getData("text/plain")).split("::");
+            var transfer = event.dataTransfer || event.originalEvent.dataTransfer;
+            var draggerPosition = (transfer.getData("Text") || transfer.getData("text/plain")).split("::");
             if($scope.columnIndex == draggerPosition[0] && $scope.widgetIndex == draggerPosition[1]) return; // no need to drop at the same place
             var dropeePosition = [$scope.columnIndex, $scope.widgetIndex];
             // get the elements
@@ -330,11 +334,12 @@ function mdWidgetEngineWidgetTileDirectiveController(){
             _obj._draggedTile.removeClass("md-widget-engine-widget-dashed");
             $element.removeClass("md-widget-engine-widget-dashed");
 
-            setTimeout(function(){
+            $timeout(function(){
                 $scope.$apply();
                 $scope.callback("update", $scope.configuration);
             }, 150);
             // if source and destination are same, well then move on :P
+            event.preventDefault();
         });
 
     };
