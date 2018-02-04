@@ -13,7 +13,7 @@ function mdWidgetEngineColumnDirective(){
     return {
         scope: false,
         templateUrl: "/src/components/widgetEngine/templates/widgetEngineColumn.html",
-        controller: function($scope, $element, $attrs, $transclude, $document, $timeout){
+        controller: ["$scope", "$element", "$attrs", "$transclude", "$document", "$timeout", function($scope, $element, $attrs, $transclude, $document, $timeout){
             $scope.widgetEngineClientRect = {};
 
             var mouseMove = function(e){
@@ -145,7 +145,7 @@ function mdWidgetEngineColumnDirective(){
                 // if source and destination are same, well then move on :P
             });
 
-        },
+        }],
         link: function($scope, iElm, iAttrs, controller) {}
     };
 }
@@ -163,24 +163,24 @@ function mdWidgetEngineWidgetTileDirective(){
 
 // Every widget can be dragged by a handler who is plays the role of a dragger
 function mdWidgetEngineWidgetTileDragger(){
-    return function($scope, $element, $attrs, $transclude){
+    return ["$scope", "$element", "$attrs", "$transclude", function($scope, $element, $attrs, $transclude){
         $element.attr('draggable', 'true');
         $element.on('dragstart dragend', function(event){
             if($scope.widget.sticky) return;
             event = event.originalEvent || event;
             event._initiatedByDragger = true; // this is to inform the parent widget that dragging is started by dragging the child element i.e. the dragger
         });
-    };
+    }];
 }
 
 // To pass custom directives dyamically it needs to be compiled first
 function mdWidgetEngineWidgetTileContentHtml(){
     return {
         transclude: true,
-        controller: function($scope, $element, $attrs, $transclude, $timeout, $compile){
+        controller: ["$scope", "$element", "$attrs", "$transclude", "$timeout", "$compile", function($scope, $element, $attrs, $transclude, $timeout, $compile){
             var el = $compile($scope.widget.content)($scope);
             $element.parent().append(el);
-        },
+        }],
         link: function($scope, iElm, iAttrs, controller) {}
     };
 }
@@ -195,11 +195,11 @@ function mdWidgetEngineDirective(){
             callback: "=callback"
         },
         templateUrl: "/src/components/widgetEngine/templates/widgetEngine.html",
-        controller: function($scope, $element, $attrs, $transclude, $timeout){
+        controller: ["$scope", "$element", "$attrs", "$transclude", "$timeout", function($scope, $element, $attrs, $transclude, $timeout){
             $timeout(function(){
                 $scope.configuration =  $scope.configuration || {};
             });
-        },
+        }],
         link: function($scope, iElm, iAttrs, controller) {}
     };
 }
@@ -210,7 +210,7 @@ function mdWidgetEngineWidgetTileDirectiveController(){
     var _obj = {};
     _obj._draggedTile = null;
 
-    _obj.controller = function($scope, $element, $attrs, $transclude, $mdDialog, $timeout, $sce, $document){
+    _obj.controller = ["$scope", "$element", "$attrs", "$transclude", "$mdDialog", "$timeout", "$sce", "$document", function($scope, $element, $attrs, $transclude, $mdDialog, $timeout, $sce, $document){
         $scope.fullscreen = false;
         $scope.widget._internalSettings = {};
         $scope.widget._internalSettings.trustedURL = $sce.trustAsResourceUrl($scope.widget.content);
@@ -337,7 +337,7 @@ function mdWidgetEngineWidgetTileDirectiveController(){
             // if source and destination are same, well then move on :P
         });
 
-    };
+    }];
 
     return _obj.controller;
 }
